@@ -1,0 +1,24 @@
+/*
+** show_tab.c for showtab in /home/bougon_p/rendu/PSU_2015_minishell2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Apr  3 15:58:06 2016 bougon_p
+** Last update Sun Apr  3 15:58:16 2016 bougon_p
+*/
+
+void            show_all_tab(t_arglist *arg)
+  |{
+  |  t_cdlist      *tmp;
+  |  int           j;
+                         |
+       |  tmp = arg->root->next;
+  |  while (tmp != arg->root)
+       |    {
+      |      j = -1;
+    |      while (tmp->data->cmd[++j] != NULL)
+	     |        printf("%s\n", tmp->data->cmd[j]);
+    |      tmp = tmp->next;
+    |    }
+  |}

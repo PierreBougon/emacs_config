@@ -1,0 +1,33 @@
+/*
+** background.c for BG in /home/bougon_p/rendu/gfx_scroller
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Mar 18 20:44:29 2016 bougon_p
+** Last update Fri Mar 18 20:45:06 2016 bougon_p
+*/
+
+void			set_bg(t_bunny_pixelarray *pixarray)
+{
+  t_bunny_position      pos;
+  t_color               col;
+  int                   i;
+  int                   j;
+
+  i = 0;
+  j = 0;
+  col.full = GREY2;
+  while (j < WIN_HEIGHT)
+    {
+      while (i < WIN_WIDTH)
+        {
+          pos.x = i;
+          pos.y = j;
+          tekpixel(pixarray, &pos, &col);
+          i++;
+        }
+      i = 0;
+      j++;
+    }
+}

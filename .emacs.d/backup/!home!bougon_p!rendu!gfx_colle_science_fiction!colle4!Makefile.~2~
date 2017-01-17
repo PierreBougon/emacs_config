@@ -1,0 +1,76 @@
+##
+## Makefile for make in /home/bougon_p/rendu/gfx_colle_science_fiction/colle1
+##
+## Made by bougon_p
+## Login   <bougon_p@epitech.net>
+##
+## Started on  Thu May 19 13:01:22 2016 bougon_p
+## Last update Thu May 19 16:40:47 2016 bougon_p
+##
+
+# USEFUL VARIABLES
+
+RM      =	rm -rf
+
+GREEN	=	\033[1;32m
+
+WHITE	=	\033[0m
+
+ECHO	=	echo -e
+
+
+# SOURCES VARIABLES
+
+MAIN		=	src/
+
+SRC		=	$(MAIN)main.c \
+			$(MAIN)tekpixel.c \
+			$(MAIN)my_blit.c \
+
+OBJS    	=	$(SRC:.c=.o)
+
+# LIBRARY VARIABLES
+
+LIB     =       -L/home/${USER}/.froot/lib/ -llapin \
+                -lsfml-audio \
+		-lsfml-graphics \
+                -lsfml-window \
+		-lsfml-system \
+                -lstdc++ -ldl \
+		-lm
+
+FLAG    =       -I/home/${USER}/.froot\
+
+# PROJECT VARIABLES
+
+NAME	=	colle1
+
+IFLAG	=	-Iinclude/
+
+CFLAGS  =	-W -Wall -Wextra $(IFLAG)
+
+CC      =	gcc $(CFLAGS)
+
+
+
+# PROJECT RULES
+
+$(NAME)		: 	$(OBJS)
+			@$(ECHO) "$(GREEN)\n> Compiling project\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
+			@$(CC) -o $(NAME) $(OBJS) $(LIB)
+
+all		:	$(NAME)
+
+clean		:
+			@$(RM) $(OBJS)
+			@$(ECHO) "$(GREEN)\n> Cleaning repository\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
+
+fclean		: 	clean
+			@$(RM) $(NAME)
+			@$(ECHO) "$(GREEN)\n> Cleaning exec\t\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
+
+re		:	fclean all
+
+.c.o		:
+			@$(CC) -c $< -o $@
+			@$(ECHO) "$(GREEN)[OK] > $<\t \t $(WHITE)"

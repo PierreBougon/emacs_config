@@ -1,0 +1,24 @@
+/*
+** loop.c for loop in /home/bougon_p/rendu/CPE_2015_Allum1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Feb  8 22:42:25 2016 bougon_p
+** Last update Tue Feb  9 01:33:34 2016 bougon_p
+*/
+
+#include "alum1.h"
+
+int	game_loop(int size, int **tab)
+{
+  char	*line;
+  char	*alum;
+
+  printf("Your turn:\nLine: ");
+  line = get_next_line(0);
+  printf("%s\nMatches: ", line);
+  alum = get_next_line(0);
+  printf("%s", alum);
+  return (0);
+}

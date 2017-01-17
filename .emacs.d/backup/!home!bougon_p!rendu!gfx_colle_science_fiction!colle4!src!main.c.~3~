@@ -1,0 +1,78 @@
+/*
+** main.c for main in /home/bougon_p/rendu/gfx_colle_science_fiction/colle4
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 16:28:17 2016 bougon_p
+** Last update Thu May 19 17:18:31 2016 bougon_p
+*/
+
+#include <stdbool.h>
+#include "quant.h"
+
+void			my_fill(t_bunny_pixelarray *pix, int color)
+{
+  int			i;
+  t_color		*col;
+
+  i = -1;
+  col = (t_color *)pix->pixels;
+  while (++i < pix->clipable.clip_width * pix->clipable.clip_height)
+    col[i].full = color;
+}
+
+t_bunny_position	pos_(int x, int y)
+{
+  t_bunny_position	pos;
+
+  pos.x = x;
+  pos.y = y;
+  return (pos);
+}
+
+t_bunny_response	esc(UNUSED t_bunny_event_state state,
+			    t_bunny_keysym sym,
+			    UNUSED t_data *data)
+{
+  if (sym == BKS_ESCAPE)
+    return (EXIT_ON_SUCCESS);
+  return (GO_ON);
+}
+
+t_bunny_response	mainloop(t_data *data)
+{
+  data->pos.x += 1;
+  my_blit(data->pix, data->bg, pos_(0, 0));
+  copy_intre(data->intre, data->r_intre, data);
+  my_blit(data->pix, data->intre, pos_(0, 0));
+  bunny_blit(&data->win->buffer, &data->pix->clipable, NULL);
+  bunny_display(data->win);
+  return (GO_ON);
+}
+
+int                     main(UNUSED int ac, UNUSED char **av)
+{
+  t_data		data;
+
+  if ((data.win = bunny_start(WIDTH, HEIGHT, false, "Start")) == NULL ||
+      (data.bg = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL ||
+      !(data.intre = bunny_load_pixelarray("assets/img/intrepid.png")) ||
+      !(data.r_intre = bunny_new_pixelarray(WIDTH, HEIGHT)) ||
+      (data.pix = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL ||
+      (data.music = bunny_load_music("assets/music/voyager.ogg")) == NULL)
+    return (1);
+  data.pos = pos_(0, HEIGHT / 2);
+  my_fill(data.bg, 0xFF000000);
+  bunny_sound_play((t_bunny_sound *)data.music);
+  bunny_set_loop_main_function((t_bunny_loop)mainloop);
+  bunny_set_key_response((t_bunny_key)esc);
+  bunny_loop(data.win, 50, &data);
+  bunny_delete_clipable(&data.bg->clipable);
+  bunny_delete_clipable(&data.intre->clipable);
+  bunny_delete_clipable(&data.r_intre->clipable);
+  bunny_sound_stop((t_bunny_sound *)data.music);
+  bunny_delete_sound((t_bunny_sound *)data.music);
+  bunny_stop(data.win);
+  return (0);
+}

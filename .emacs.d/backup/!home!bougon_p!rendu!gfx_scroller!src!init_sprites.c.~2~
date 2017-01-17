@@ -1,0 +1,31 @@
+/*
+** init_sprites.c for MEGAMAN in /home/bougon_p/rendu/gfx_scroller
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat Mar 19 00:06:52 2016 bougon_p
+** Last update Sat Mar 19 00:11:09 2016 bougon_p
+*/
+
+#include "mega.h"
+
+int	init_sprites(t_data *data)
+{
+  if ((data->sprites = bunny_malloc
+       (sizeof(t_bunny_picture *) * 12)) == NULL)
+    return (1);
+  data->sprites[11] = NULL;
+  data->sprites[0] = bunny_load_picture("spritemega1");
+  data->sprites[1] = bunny_load_picture("spritemega2");
+  data->sprites[2] = bunny_load_picture("spritemega3");
+  data->sprites[3] = bunny_load_picture("spritemega4");
+  data->sprites[4] = bunny_load_picture("spritemega5");
+  data->sprites[5] = bunny_load_picture("spritemega6");
+  data->sprites[6] = bunny_load_picture("spritemega7");
+  data->sprites[7] = bunny_load_picture("spritemega8");
+  data->sprites[8] = bunny_load_picture("spritemega9");
+  data->sprites[9] = bunny_load_picture("spritemega10");
+  data->sprites[10] = bunny_load_picture("spritemega11");
+  return (0);
+}

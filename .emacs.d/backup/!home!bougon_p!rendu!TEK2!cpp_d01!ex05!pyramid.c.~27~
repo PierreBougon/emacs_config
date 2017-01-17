@@ -1,0 +1,64 @@
+/*
+** pyramid.c for pyramid in /home/bougon_p/rendu/TEK2/cpp_d01/ex05
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Jan  4 20:57:49 2017 bougon_p
+** Last update Wed Jan  4 22:17:02 2017 bougon_p
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int	find_path(int **map, int size, int level, int x, int min, int road)
+{
+  int	min_l;
+  int	min_r;
+
+  if (level < size)
+    {
+      printf("level = %d && map = %d\n", level, map[level][x]);
+      road += map[level][x];
+      min_l = find_path(map, size, level + 1, x, min, road);
+      min_r = find_path(map, size, level + 1, x + 1, min, road);
+      if (min_l < min_r)
+	return (min_l);
+      else
+	return (min_r);
+    }
+  return (road);
+}
+
+int	pyramid_path(int size, int **map)
+{
+  int	min;
+
+  min = 2000000000;
+  min = find_path(map, size, 0, 0, 0, 0);
+  return (min);
+}
+
+int	main()
+{
+  int **map;
+
+  map = malloc(sizeof(int *) * 4);
+  int i = -1;
+  while (++i < 4)
+    {
+      map[i] = malloc(sizeof(int) * 4);
+
+    }
+  map[0][0] = 0;
+  map[1][0] = 7;
+  map[1][1] = 4;
+  map[2][0] = 2;
+  map[2][1] = 3;
+  map[2][2] = 6;
+  map[3][0] = 8;
+  map[3][1] = 5;
+  map[3][2] = 9;
+  map[3][3] = 3;
+  printf("%d\n", pyramid_path(4, map));
+}

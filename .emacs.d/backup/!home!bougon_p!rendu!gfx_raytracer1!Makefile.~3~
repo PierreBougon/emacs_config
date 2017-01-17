@@ -1,0 +1,80 @@
+##
+## Makefile for RAYTRACER in /home/bougon_p/rendu/gfx_raytracer1
+## 
+## Made by bougon_p
+## Login   <bougon_p@epitech.net>
+## 
+## Started on  Fri Mar 11 18:16:09 2016 bougon_p
+## Last update Fri Mar 11 19:16:47 2016 bougon_p
+##
+
+# USEFUL VARIABLES
+
+RM      =	rm -rf
+
+GREEN	=	\033[1;32m
+
+WHITE	=	\033[0m
+
+ECHO	=	echo -e
+
+
+# SOURCES VARIABLES
+
+MAIN		=	src/main/
+
+SRC		=	$(MAIN)main.c \
+
+OBJS    	=	$(SRC:.c=.o)
+
+
+# LIBRARY VARIABLES
+
+LIB	=	-L/home/${USER}/.froot/lib/ -llapin \
+                -lsfml-audio \
+                -lsfml-graphics \
+                -lsfml-window \
+                -lsfml-system \
+                -lstdc++ -ldl \
+		-lm
+
+FLAG    =       -I/home/${USER}/.froot\
+
+LIBPATH =	lib/
+
+LDFLAGS =	-lmy -L$(LIBPATH)
+
+
+# PROJECT VARIABLES
+
+NAME	=	raytracer1
+
+IFLAG	=	-Iinclude/
+
+CFLAGS  =	-W -Wall -Wextra $(IFLAG)
+
+CC      =	gcc $(CFLAGS)
+
+
+
+# PROJECT RULES
+
+$(NAME)		: 	$(OBJS)
+			@$(ECHO) "$(GREEN)\n> Compiling project\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
+			@$(CC) -o $(NAME) $(OBJS) $(LIB) $(LDFLAGS)
+
+all		:	$(NAME)
+
+clean		:
+			@$(RM) $(OBJS)
+			@$(ECHO) "$(GREEN)\n> Cleaning repository\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
+
+fclean		: 	clean
+			@$(RM) $(NAME)
+			@$(ECHO) "$(GREEN)\n> Cleaning exec\t\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
+
+re		:	fclean all
+
+.c.o		:
+			@$(CC) -c $< -o $@ $(FLAG) $(CFLAGS)
+			@$(ECHO) "$(GREEN)[OK] > $<\t \t $(WHITE)"

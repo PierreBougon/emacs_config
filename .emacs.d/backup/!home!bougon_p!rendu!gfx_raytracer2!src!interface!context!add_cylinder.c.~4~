@@ -1,0 +1,21 @@
+/*
+** add_cylinder.c for cylinder in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Apr 24 18:04:18 2016 bougon_p
+** Last update Tue Apr 26 15:36:37 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+int	add_cylinder(UNUSED t_data *data)
+{
+  if (data->itfc.add.need_form == true)
+    {
+      data->itfc.add.need_form = false;
+      printf("ADD CYLINDER\n");
+    }
+  return (0);
+}

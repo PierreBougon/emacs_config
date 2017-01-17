@@ -1,0 +1,14 @@
+/*
+** sudoku.c for SUDOKU in /home/bougon_p/rendu/sudoki-bi
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Feb 26 21:49:12 2016 bougon_p
+** Last update Fri Feb 26 21:49:24 2016 bougon_p
+*/
+
+int	main(int ac, char **av)
+{
+
+}

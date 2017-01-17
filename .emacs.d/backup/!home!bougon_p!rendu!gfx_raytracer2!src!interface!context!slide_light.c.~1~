@@ -1,0 +1,11 @@
+/*
+** slide_light.c for slide in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed May 18 21:09:40 2016 bougon_p
+** Last update Wed May 18 21:09:48 2016 bougon_p
+*/
+
+#include "raytracer.h"

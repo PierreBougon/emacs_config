@@ -1,0 +1,67 @@
+/*
+** create_node.c for node in /home/bougon_p/rendu/dante/profondeur
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed May 11 22:02:04 2016 bougon_p
+** Last update Thu May 12 00:01:57 2016 bougon_p
+*/
+
+#include "dante.h"
+
+t_node		*create_east_node(t_node *node)
+{
+  t_node	*new;
+
+  if (!(new = malloc(sizeof(t_node))))
+    return (NULL);
+  new->status = BASIC;
+  new->west = node;
+  new->north = NULL;
+  new->east = NULL;
+  new->south = NULL;
+  return (new);
+}
+
+t_node		*create_south_node(t_node *node)
+{
+  t_node	*new;
+
+  if (!(new = malloc(sizeof(t_node))))
+    return (NULL);
+  status = BASIC;
+  new->west = NULL;
+  new->north = node;
+  new->east = NULL;
+  new->south = NULL;
+  return (new);
+}
+
+t_node		*create_north_node(t_node *node)
+{
+  t_node	*new;
+
+  if (!(new = malloc(sizeof(t_node))))
+    return (NULL);
+  status = BASIC;
+  new->west = NULL;
+  new->north = NULL;
+  new->east = NULL;
+  new->south = node;
+  return (new);
+}
+
+t_node		*create_west_node(t_node *node)
+{
+  t_node	*new;
+
+  if (!(new = malloc(sizeof(t_node))))
+    return (NULL);
+  status = BASIC;
+  new->west = NULL;
+  new->north = NULL;
+  new->east = node;
+  new->south = NULL;
+  return (new);
+}

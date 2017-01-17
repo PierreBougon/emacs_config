@@ -1,0 +1,22 @@
+/*
+** open_file.c for open in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat Apr 23 15:24:05 2016 bougon_p
+** Last update Sat Apr 23 15:25:46 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+int     open_file(t_data *data)
+{
+  if (data->itfc.open.need_open)
+    {
+      data->itfc.open.need_open = false;
+    }
+  else
+    text(data->itfc.open.file, &data->itfc, TXT_X, TXT_Y);
+  return (0);
+}

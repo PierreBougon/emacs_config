@@ -1,0 +1,41 @@
+/*
+** set_size.c for size in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May  5 16:58:56 2016 bougon_p
+** Last update Thu May  5 17:05:32 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+void	set_full_size(t_data *data)
+{
+  data->rt.width = FULL_WIDTH;
+  data->rt.height = FULL_HEIGHT;
+}
+
+void	set_high_size(t_data *data)
+{
+  data->rt.width = HIGH_WIDTH;
+  data->rt.height = HIGH_HEIGHT;
+}
+
+void	set_hd_size(t_data *data)
+{
+  data->rt.width = HD_WIDTH;
+  data->rt.height = HD_HEIGHT;
+}
+
+void	set_xga_size(t_data *data)
+{
+  data->rt.width = XGA_WIDTH;
+  data->rt.height = XGA_HEIGHT;
+}
+
+void	set_vga_size(t_data *data)
+{
+  data->rt.width = VGA_WIDTH;
+  data->rt.height = VGA_HEIGHT;
+}

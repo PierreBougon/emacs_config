@@ -1,0 +1,11 @@
+/*
+** init_echo.c for echo in /home/bougon_p/rendu/PSU_2015_42sh
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Tue May 31 17:46:55 2016 bougon_p
+** Last update Tue May 31 17:47:03 2016 bougon_p
+*/
+
+#include "42s.h"

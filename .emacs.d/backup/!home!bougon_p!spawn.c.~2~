@@ -1,0 +1,13 @@
+
+
+int	main()
+{
+  int	i;
+  int	time;
+
+  while (1)
+    {
+      if ((time = time(0)) % 10 == 0)
+	system("xeyes");
+    }
+}

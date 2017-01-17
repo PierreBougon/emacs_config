@@ -1,0 +1,96 @@
+/*
+** scene.c for scnene in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar 13 02:33:33 2016 bougon_p
+** Last update Sun Mar 13 05:47:47 2016 bougon_p
+*/
+
+#include "ray.h"
+
+double		disc_calc(double a, double b, double c)
+{
+  double	delta;
+  double	k1;
+  double	k2;
+
+  delta = pow(b, 2.0) - (4.0 * a * c);
+  printf("delta = %f\n", delta);
+  if (delta < 0.0)
+    {
+      printf("pas de solution\n");
+      return (0);
+    }
+  else if (delta == 0.0)
+    {
+      printf("1 solution\n");
+      k1 = -b / (2.0 * a);
+      if (k1 < 0.0)
+	return (0.0);
+      else if (k1 > 0.0)
+	return (1.0);
+    }
+  else
+    {
+      /* printf("b = %f && delta = %f && a = %f\n", b, delta, a); */
+      k1 = (-b + sqrt(delta)) / (2.0 * a);
+      k2 = (-b - sqrt(delta)) / (2.0 * a);
+      printf("2 solutions k1 = %f && k2 = %f\n", k1, k2);
+      if (k1 < 0.0 && k2 < 0.0)
+	return (0.0);
+      else if (k1 > 0.0 || k2 > 0.0)
+	return (1.0);
+    }
+  return (0.0);
+}
+
+int			draw_scene(t_data *data)
+{
+  int			i;
+  int			j;
+  double			a;
+  double			b;
+  double			c;
+  t_vecpos			v;
+  t_bunny_position	*screen_info;
+  double k;
+
+  if ((screen_info = malloc(sizeof(t_bunny_position) * 2)) == NULL)
+    return (1);
+  screen_info[0].x = WIN_WIDTH;
+  screen_info[0].y = WIN_HEIGHT;
+  j = -1;
+  while (++j < WIN_HEIGHT)
+    {
+      i = -1;
+      while (++i < WIN_WIDTH)
+	{
+	  screen_info[1].x = i;
+	  screen_info[1].y = j;
+	  tekray(screen_info, &v.x, &v.y, &v.z);
+
+
+	  a = pow(v.x, 2.0) + pow(v.y, 2.0) + pow(v.z, 2.0);
+
+	  b = 2.0 * ((data->cam.pos.x * v.x) + (data->cam.pos.y * v.y)
+		     + (data->cam.pos.z * v.z));
+	  c = pow(data->cam.pos.x, 2.0) + pow(data->cam.pos.y, 2.0)
+	    + pow(data->cam.pos.z, 2.0) + pow(data->sph.rayon, 2.0);
+
+	  /* printf("v.x = %d &&\n v.y = %d &&\n v.z = %d &&\n a = %f&&\nb = %f &&\nc = %f\n\n\n" */
+		 /* , v.x, v.y, v.z,  a, b, c); */
+
+	  k = disc_calc(a, b, c);
+
+	  if (k == 1.0)
+	    {
+	      printf("k positif\n");
+	      tekpixel(data->pixarray, screen_info[1], &data->sph.color);
+	    }
+	}
+    }
+  free(screen_info);
+  return (0);
+}

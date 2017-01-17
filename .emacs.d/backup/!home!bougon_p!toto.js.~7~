@@ -1,0 +1,19 @@
+function	pilule(bite)
+{
+    bite.taille += 1;
+    bite.poid += 2;
+}
+
+var	bite = {
+    taille: 12,
+    poid: 3,
+    getInfo: function () {
+	return (this.taille + ' ' + this.poid + 'bite')
+    }
+}
+
+alert("Coucou tu veux vois mon penis de type pénien ?\n")
+pilule(bite)
+console.log(bite)
+console.log("yolo")
+console.log(bite.getInfo())

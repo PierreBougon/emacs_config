@@ -1,0 +1,2 @@
+export PS1='MDR'
+alias ls='ls --color'

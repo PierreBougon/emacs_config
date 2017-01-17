@@ -1,0 +1,16 @@
+/*
+** plan.c for PLAN in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar 13 11:44:31 2016 bougon_p
+** Last update Sun Mar 13 11:46:40 2016 bougon_p
+*/
+
+#include "ray.h"
+
+int	calc_plan(t_data *data, t_vecpos *v)
+{
+
+}

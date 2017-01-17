@@ -1,0 +1,14 @@
+/*
+** err.c for ERROR in /home/bougon_p/rendu/sudoki-bi
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat Feb 27 00:36:47 2016 bougon_p
+** Last update Sat Feb 27 00:37:01 2016 bougon_p
+*/
+
+void	my_putstr_err(char *str)
+{
+  dprintf(2, "%s", str);
+}

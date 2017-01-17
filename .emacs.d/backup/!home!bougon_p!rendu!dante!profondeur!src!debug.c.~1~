@@ -1,0 +1,12 @@
+/*
+** debug.c for debug in /home/bougon_p/rendu/dante/profondeur
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 12 15:24:48 2016 bougon_p
+** Last update Thu May 12 15:25:04 2016 bougon_p
+*/
+
+#include "dante.h"
+#include <stdio.h>

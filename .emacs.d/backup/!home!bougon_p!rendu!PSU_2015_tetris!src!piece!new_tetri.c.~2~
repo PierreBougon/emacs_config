@@ -1,0 +1,57 @@
+/*
+** new_tetri.c for TETRIS in /home/bougon_p/rendu/PSU_2015_tetris
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Feb 26 13:44:01 2016 bougon_p
+** Last update Fri Feb 26 14:10:42 2016 bougon_p
+*/
+
+#include "tetris.h"
+
+t_tetri		*chose_tetri(t_tetri *tetri, t_arglist *tetriminos)
+{
+  t_tetri	save;
+  int		i;
+  int		j;
+  t_cdlist	*tmp;
+
+  i = rand() % tetriminos->length;
+  j = 0;
+  tmp = tetriminos->root;
+  while (j++ < i)
+    tmp = tmp->next;
+  save = *tmp->data;
+  tetri = &save;
+  return (tetri);
+}
+
+int	find_new_tetri(t_data *data, int refind)
+{
+  t_tetri	*tetri;
+
+  if (refind == -1)
+    {
+      if ((tetri = malloc(sizeof(t_cdlist))) == NULL)
+	return (-2);
+      tetri = chose_tetri(tetri, &data->tetriminos);
+      create_cdlist(&data->tetri_ig, tetri);
+      if ((tetri = malloc(sizeof(t_cdlist))) == NULL)
+	return (-2);
+      tetri = chose_tetri(tetri, &data->tetriminos);
+      add_last_cdl(&data->tetri_ig, tetri);
+      refind = 0;
+    }
+  else if (refind == 0)
+    refind = 0;
+  else
+    {
+      if ((tetri = malloc(sizeof(t_cdlist))) == NULL)
+	return (-2);
+      tetri = chose_tetri(tetri, &data->tetriminos);
+      data->tetri_ig.root->data = tetri;
+      refind = 0;
+    }
+    return (refind);
+}

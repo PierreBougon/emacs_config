@@ -1,0 +1,16 @@
+/*
+** context.c for context in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Apr 15 21:53:12 2016 bougon_p
+** Last update Fri Apr 15 21:54:06 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+int	modif_form(t_itfc *itfc)
+{
+
+}

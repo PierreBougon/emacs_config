@@ -1,0 +1,10 @@
+function pilule(var a)
+{
+    a += 1;
+}
+
+var bite = 12
+
+pilule(bite)
+console.log(bite)
+console.log("yolo")

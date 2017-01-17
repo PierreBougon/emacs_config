@@ -1,0 +1,77 @@
+##
+## Makefile for MAKEFILE in /home/bougon_p/rendu/CPE_2015_Allum1
+## 
+## Made by bougon_p
+## Login   <bougon_p@epitech.net>
+## 
+## Started on  Mon Feb  8 15:38:07 2016 bougon_p
+## Last update Tue Feb  9 02:02:05 2016 bougon_p
+##
+
+# USEFUL VARIABLES
+
+RM      =	rm -rf
+
+GREEN	=	\033[1;32m
+
+WHITE	=	\033[0m
+
+ECHO	=	echo -e
+
+
+# SOURCES VARIABLES
+
+GAME		=	src/game/
+
+MAIN		=	src/main/
+
+SRC		=	$(MAIN)alumun.c \
+			$(MAIN)print.c \
+			$(MAIN)get_next_line.c \
+			$(GAME)loop.c
+
+OBJS    	=	$(SRC:.c=.o)
+
+
+# LIBRARY VARIABLES
+
+LIBPATH =	lib/
+
+LIB	=	-lmy
+
+LDFLAGS =	-lmy -L$(LIBPATH)
+
+
+# PROJECT VARIABLES
+
+NAME	=	allum1
+
+IFLAG	=	-Iinclude/
+
+CFLAGS  =	  -Wall -Werror   $(IFLAG)
+
+CC      =	gcc $(CFLAGS)
+
+
+
+# PROJECT RULES
+
+$(NAME)		: 	$(OBJS)
+			@$(ECHO) "$(GREEN)\n> Compiling project\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
+			@$(CC) -o $(NAME) $(OBJS) $(LDFLAGS)
+
+all		:	$(NAME) 
+
+clean		:
+			@$(RM) $(OBJS)
+			@$(ECHO) "$(GREEN)\n> Cleaning repository\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
+
+fclean		: 	clean
+			@$(RM) $(NAME)
+			@$(ECHO) "$(GREEN)\n> Cleaning exec\t\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
+
+re		:	fclean all
+
+.c.o		:
+			@$(CC) -c $< -o $@
+			@$(ECHO) "$(GREEN)> $<\t : \t [OK]$(WHITE)"

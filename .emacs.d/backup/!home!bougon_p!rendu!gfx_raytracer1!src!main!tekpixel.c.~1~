@@ -1,0 +1,22 @@
+/*
+** tekpixel.c for PIX in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat Mar 12 23:20:59 2016 bougon_p
+** Last update Sat Mar 12 23:21:16 2016 bougon_p
+*/
+
+void		tekpixel(t_bunny_pixelarray *pix, t_bunny_position pos,
+                         t_color *color)
+{
+  t_color       *col;
+
+  if (pos.x >= 0 && pos.x < WIN_WIDTH && pos.y >= 0 && pos.y < WIN_HEIGHT)
+    {
+      col = (t_color*)pix->pixels +
+        (pos.x + (pos.y * pix->clipable.clip_width));
+      col->full = color[0].full;
+    }
+}

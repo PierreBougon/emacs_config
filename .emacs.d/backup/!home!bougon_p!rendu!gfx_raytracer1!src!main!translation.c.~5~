@@ -1,0 +1,25 @@
+/*
+** translation.c for trans in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat Mar 12 23:50:24 2016 bougon_p
+** Last update Sun Mar 13 00:14:44 2016 bougon_p
+*/
+
+#include "ray.h"
+
+void		translation(t_3dpos *pos_sph, t_3dpos *pos_cam)
+{
+  t_3dpos	tmp;
+
+  tmp = *pos_cam;
+  pos_cam->x = pos_sph->x - pos_cam->x;
+  pos_cam->y = pos_sph->y - pos_cam->y;
+  pos_cam->z = pos_sph->z - pos_cam->z;
+
+  pos_sph->x = tmp.x - pos_sph->x;
+  pos_sph->y = tmp.y - pos_sph->y;
+  pos_sph->z = tmp.z - pos_sph->z;
+}

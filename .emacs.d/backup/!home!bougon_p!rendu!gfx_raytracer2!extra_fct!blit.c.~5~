@@ -1,0 +1,78 @@
+/*
+** blit.c for blit in /home/bougon_p/rendu/gfx_raytracer2/extra_fct
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Apr 20 16:14:28 2016 bougon_p
+** Last update Wed Apr 20 17:12:07 2016 bougon_p
+*/
+
+#include "lapin.h"
+
+typedef struct		s_data
+{
+  t_bunny_pixelarray	*px1;
+  t_bunny_pixelarray	*px2;
+  t_bunny_window	*win;
+}			t_data;
+
+void			fill_pxlarray(t_bunny_pixelarray *pxar,
+				      unsigned int color)
+{
+  int                   i;
+  int                   j;
+  t_color               col;
+  t_bunny_position      pxpos;
+
+  col.full = color;
+  j = -1;
+  while (++j < pxar->clipable.clip_height)
+    {
+      i = -1;
+      while (++i < pxar->clipable.clip_width)
+        {
+          pxpos.x = i;
+          pxpos.y = j;
+          tekpixel(pxar, &pxpos, &col);
+        }
+    }
+}
+
+void	my_blit(t_data *data)
+{
+  bunny_blit(&data->win->buffer, &data->px1->clipable, 0);
+  bunny_blit(&data->win->buffer, &data->px2->clipable, 0);
+}
+
+t_bunny_response        mainloop(void *_data)
+{
+  t_data                        *data;
+
+  data = _data;
+  my_blit(data);
+  bunny_display(data->win);
+  return (GO_ON);
+}
+
+int	main()
+{
+  t_data	data;
+
+  if ((data.win = bunny_start(720, 720, "BLIT")) == NULL)
+    return (1);
+  if ((data.px1 =
+       bunny_new_pixelarray(720, 720)) == NULL)
+    return (1);
+  if ((data.px2 =
+       bunny_new_pixelarray(720, 720)) == NULL)
+    return (1);
+  fill_pxlarray(data.px1, 0x3015FF67);
+  fill_pxlarray(data.px2, 0x88FF1067);
+  bunny_set_loop_main_function(mainloop);
+  bunny_loop(data.win, 30, &data);
+  bunny_delete_clipable(&data.px1->clipable);
+  bunny_delete_clipable(&data.px2->clipable);
+  bunny_stop(data.win);
+  return (0);
+}

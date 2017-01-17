@@ -1,0 +1,5 @@
+	.name "Abel"
+	.comment "L'amer noir."
+
+	lld %1, r2
+	lld 3, r4

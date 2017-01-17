@@ -1,0 +1,35 @@
+/*
+** copy_intre.c for intre
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 17:14:13 2016 bougon_p
+** Last update Thu May 19 17:23:40 2016 bougon_p
+*/
+
+#include "quant.h"
+
+void			copy_intre(t_bunny_pixelarray *intre, t_bunny_pixelarray *r_intre,
+				   t_data *data)
+{
+  t_bunny_position	pos;
+  t_bunny_position	r_pos;
+  t_color		*col;
+
+  r_pos.x = data->pos.x;
+  r_pos.y = data->pos.y;
+  pos.x = -1;
+  my_fill(r_intre, 0x00000000);
+  while (++pos.x < intre->clipable.clip_width)
+    {
+      pos.y = -1;
+      while (++pos.y < intre->clipable.clip_height)
+	{
+	  col = getpixel(intre, pos);
+	  tekpixel(r_intre, &r_pos, col);
+	  r_pos.x++;
+	  r_pos.y++;
+	}
+    }
+}

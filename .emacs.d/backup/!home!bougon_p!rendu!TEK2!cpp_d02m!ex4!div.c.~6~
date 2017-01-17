@@ -1,0 +1,45 @@
+/*
+** div.c for div in /home/bougon_p/rendu/TEK2/cpp_d02m/ex4
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 11:13:51 2017 bougon_p
+** Last update Thu Jan  5 13:07:57 2017 bougon_p
+*/
+
+#include "castmania.h"
+
+int	integer_div(int a, int b)
+{
+  if (b == 0)
+    return (0);
+  return (a / b);
+}
+
+float	decimal_div(int a, int b)
+{
+  float	res;
+
+  if (b == 0)
+    return (0);
+  res = (float)(a / b);
+  return (res);
+}
+
+void	exec_div(t_div *operation)
+{
+  t_integer_op	*div_op_int;
+  t_decimale_op	*div_op_dec;
+
+  if (operation->div_type == INTEGER)
+    {
+      div_op_int = operation->div_op;
+      div_op_int->res =	integer_div(div_op_int->a, div_op_int->b);
+    }
+  else
+    {
+      div_op_dec = operation->div_op;
+      div_op_dec->res =	decimal_div(div_op_dec->a, div_op_dec->b);
+    }
+}

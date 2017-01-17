@@ -1,0 +1,14 @@
+/*
+** path.c for path in /home/bougon_p/rendu/PSU_2015_minishell2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Apr  4 17:58:03 2016 bougon_p
+** Last update Mon Apr  4 17:59:43 2016 bougon_p
+*/
+
+char	*get_next_path(char *path)
+{
+
+}

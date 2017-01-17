@@ -1,0 +1,13 @@
+/*
+** get_var.c for getvar in /home/bougon_p/rendu/PSU_2015_minisell2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Apr  1 16:37:14 2016 bougon_p
+** Last update Fri Apr  1 16:37:47 2016 bougon_p
+*/
+
+#include "shell.h"
+
+void	get_var_from_env(t_data *data, char *

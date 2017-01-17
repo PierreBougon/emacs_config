@@ -1,0 +1,15 @@
+/*
+** display_echo.c for display in /home/bougon_p/rendu/PSU_2015_42sh
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun May 29 18:40:38 2016 bougon_p
+** Last update Sun May 29 18:40:47 2016 bougon_p
+*/
+
+#include <stdbool.h>
+check_setenv.o           |#include <string.h>
+check_unsetenv.c         |#include <stdlib.h>
+check_unsetenv.o         |#include <unistd.h>
+check_which_cd.c         |#include "42s.h"

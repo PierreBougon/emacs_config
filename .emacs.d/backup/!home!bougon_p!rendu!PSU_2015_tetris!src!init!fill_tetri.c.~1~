@@ -1,0 +1,21 @@
+/*
+** fill_tetri.c for TETRI in /home/bougon_p/rendu/PSU_2015_tetris
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Mar  7 14:54:12 2016 bougon_p
+** Last update Mon Mar  7 15:01:04 2016 bougon_p
+*/
+
+#include "tetris.h"
+
+void	check_item(tetri *tetri)
+{
+  if (tetri->item[i] == NULL)
+    tetri->error = true;
+  if (tetri->item[i] != NULL)
+    epurendstr(tetri->item[i]);
+  if (tetri->item[i] == NULL || my_strlen(tetri->item[i]) > tetri->width)
+    tetri->error = true;
+}

@@ -1,0 +1,14 @@
+/*
+** tekray.c for tekray in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar 13 01:36:00 2016 bougon_p
+** Last update Sun Mar 13 01:36:49 2016 bougon_p
+*/
+
+void	tekray(const t_bunny_position *screen_info, int *x, int *y, int *z)
+{
+
+}

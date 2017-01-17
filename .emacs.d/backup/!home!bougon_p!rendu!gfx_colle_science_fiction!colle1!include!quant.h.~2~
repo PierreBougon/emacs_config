@@ -1,0 +1,14 @@
+/*
+** quant.h for header in /home/bougon_p/rendu/gfx_colle_science_fiction/colle1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 13:02:31 2016 bougon_p
+** Last update Thu May 19 13:03:24 2016 bougon_p
+*/
+
+#ifndef _QUANT_H_
+# define _QUANT_H_
+
+#endif /* !QUANT_H_ */

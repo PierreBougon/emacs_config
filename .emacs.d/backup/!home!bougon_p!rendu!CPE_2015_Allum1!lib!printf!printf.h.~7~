@@ -1,0 +1,50 @@
+/*
+** printf.h for print in /home/bougon_p/rendu/PSU_2015_my_printf
+**
+** Made by Pierre Bougon
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Nov  4 09:27:58 2015 Pierre Bougon
+** Last update Mon Feb 15 21:37:04 2016 bougon_p
+*/
+
+#ifndef PRINTF_H_
+# define PRINTF_H_
+
+# include <stdarg.h>
+/* # include "../../include/my.h" */
+
+typedef struct	s_tab
+{
+  int		(**targ)(va_list);
+  char		*flags;
+}		t_tab;
+
+int	check_type(char, char *, va_list, int);
+int	my_printf(const char *, ...);
+int	put_actualstr(char *, int);
+int	print_char(va_list);
+int	print_string(va_list);
+int	print_nbchar(va_list, int);
+int	print_bin(va_list);
+int	print_octal(va_list);
+int	print_pc(va_list);
+int	print_decimal(va_list);
+int	print_hexa(va_list);
+int	print_HEXA(va_list);
+int	init_flags(t_tab *arg);
+int	init_tab(t_tab *arg);
+int	my_str_to_int(int, char *, int);
+int	my_putnbr_base(unsigned int, char *);
+int	my_calc_nbrbase(unsigned int, char *);
+int	print_unint(va_list);
+int	print_ptr(va_list);
+int	calc_adbase(unsigned long, char *);
+int	print_strhide(va_list);
+int	my_putfullstr(unsigned char *);
+int	check_zero(int);
+int	print_nothing(va_list);
+int	format_star(int, va_list, int, int);
+int	my_addputchar(char);
+
+#endif /* !PRINTF_H_ */

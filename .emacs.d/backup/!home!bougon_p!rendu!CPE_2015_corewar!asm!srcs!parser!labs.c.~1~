@@ -1,0 +1,19 @@
+/*
+** labs.c for LABELS in /home/bougon_p/rendu/CPE_2015_corewar/asm
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Tue Mar 22 20:39:57 2016 bougon_p
+** Last update Tue Mar 22 20:42:28 2016 bougon_p
+*/
+
+int	check_short_lab()
+{
+  if (info->arg_1[1] == ':')
+    {
+      /*stock position
+	stock le nom*/
+      instruc->addr_vir += 2;
+    }
+}

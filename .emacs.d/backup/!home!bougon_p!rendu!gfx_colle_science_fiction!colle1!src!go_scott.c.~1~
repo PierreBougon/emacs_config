@@ -1,0 +1,11 @@
+/*
+** go_scott.c for fct in /home/bougon_p/rendu/gfx_colle_science_fiction/colle1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 13:28:52 2016 bougon_p
+** Last update Thu May 19 13:31:37 2016 bougon_p
+*/
+
+#include "quant.h"

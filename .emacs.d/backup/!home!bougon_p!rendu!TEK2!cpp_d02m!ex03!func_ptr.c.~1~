@@ -1,0 +1,14 @@
+/*
+** func_ptr.c for  in /home/bougon_p/rendu/TEK2/cpp_d02m/ex03
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 10:34:27 2017 bougon_p
+** Last update Thu Jan  5 10:35:19 2017 bougon_p
+*/
+
+void	print_normal(cahr *str)
+{
+
+}

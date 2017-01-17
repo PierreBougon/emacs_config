@@ -1,0 +1,19 @@
+/*
+** resize_obj.c for resize in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri May 20 15:32:40 2016 bougon_p
+** Last update Fri May 20 19:40:43 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+int	resize_obj(t_data *data)
+{
+  if (check_workspace(data->itfc.mpos, &data->rt) &&
+      (data->itfc.obj_click || data->itfc.light_selected))
+      printf("RESIZE \n");
+  return (0);
+}

@@ -1,0 +1,99 @@
+/*
+** plasma.c for plasma in /home/bougon_p/rendu/gfx_incendie
+**
+** Made by Pierre Bougon
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Dec  6 13:59:15 2015 Pierre Bougon
+** Last update Sun Mar 20 17:34:08 2016 bougon_p
+*/
+
+#include "../include/plsm.h"
+
+int	set_plasma(t_data *data)
+{
+  draw_plasma(data);
+  return (0);
+}
+
+void			set_bg(t_bunny_pixelarray *pixarray)
+{
+  t_bunny_position      pos;
+  t_color               col;
+  int                   i;
+  int                   j;
+
+  i = 0;
+  j = 0;
+  col.full = BLACK;
+  while (j < WIN_HEIGHT)
+    {
+      while (i < WIN_WIDTH)
+        {
+          pos.x = i;
+          pos.y = j;
+          tekpixel(pixarray, pos, &col);
+          i++;
+        }
+      i = 0;
+      j++;
+    }
+}
+
+t_bunny_response	esc_key(t_bunny_event_state state,
+                                t_bunny_keysym keysym, void *_data)
+{
+  t_data		*data;
+
+  data = _data;
+  if (keysym == BKS_ESCAPE && state == GO_DOWN)
+    return (EXIT_ON_SUCCESS);
+  else if (keysym == BKS_UP && state == GO_DOWN)
+    data->modif += 10;
+  else if (keysym == BKS_DOWN && state == GO_DOWN)
+    data->modif -= 10;
+  else if (keysym == BKS_RIGHT && state == GO_DOWN)
+    data->zoom += 10;
+  else if (keysym == BKS_LEFT && state == GO_DOWN)
+    data->zoom -= 10;
+  return (GO_ON);
+}
+
+t_bunny_response	mainloop(void *_data)
+{
+  t_data                *data;
+
+  data = _data;
+  data->modif += 0.05;
+  data->zoom += 0.05;
+  data->move += 4;
+  set_bg(data->pixarray);
+  set_plasma(data);
+  bunny_blit(&data->window->buffer, &data->pixarray->clipable, 0);
+  bunny_display(data->window);
+  return (GO_ON);
+}
+
+int		main(int ac, char **av)
+{
+  t_data        data;
+
+  (void) av;
+  (void) ac;
+  srand(time(0));
+  data.window = bunny_start(WIN_WIDTH, WIN_HEIGHT, 0, "PLASMA");
+  data.pixarray = bunny_new_pixelarray(WIN_WIDTH, WIN_HEIGHT);
+  if ((data.colorarray = malloc(sizeof(t_color) * 128)) == NULL)
+    return (1);
+  set_colorarray_plasma(data.colorarray);
+  data.move = 10;
+  data.modif = 5;
+  data.zoom = 5;
+  bunny_set_loop_main_function(mainloop);
+  bunny_set_key_response(esc_key);
+  bunny_loop(data.window, 60, &data);
+  free (data.colorarray);
+  bunny_delete_clipable(data.pixarray->pixels);
+  bunny_stop(data.window);
+  return (0);
+}

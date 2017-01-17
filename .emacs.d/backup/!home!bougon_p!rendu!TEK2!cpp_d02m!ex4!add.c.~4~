@@ -1,0 +1,33 @@
+/*
+** add.c for add in /home/bougon_p/rendu/TEK2/cpp_d02m/ex4
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 11:25:41 2017 bougon_p
+** Last update Thu Jan  5 12:21:09 2017 bougon_p
+*/
+
+int	normal_add(int a, int b)
+{
+  return (a + b);
+}
+
+int	absolute_add(int a, int b)
+{
+  if (a < 0)
+    a = -a;
+  if (b < 0)
+    b = -b;
+  return (a + b);
+}
+
+void	exec_add(t_add *operation)
+{
+  if (operation->add_type == NORMAL)
+    ((t_integer_op)(operation->add_op).res =
+     normal_add(((t_integer_op)(operation->add_op).a, ((t_integer_op)(operation->add_op).b);
+  else
+    ((t_integer_op)(operation->add_op).res =
+     absolute_add(((t_integer_op)(operation->add_op).a, ((t_integer_op)(operation->add_op).b);
+}

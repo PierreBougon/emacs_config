@@ -1,0 +1,12 @@
+/*
+** print_echo_first.c for print in /home/bougon_p/rendu/PSU_2015_42sh
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon May 30 14:48:48 2016 bougon_p
+** Last update Mon May 30 14:49:26 2016 bougon_p
+*/
+
+#include <stdio.h>
+#include "42s.h"

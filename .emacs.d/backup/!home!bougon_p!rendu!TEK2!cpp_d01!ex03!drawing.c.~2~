@@ -1,0 +1,26 @@
+/*
+** drawing.c for draw in /home/bougon_p/rendu/TEK2/cpp_d01/ex03
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Jan  4 17:41:43 2017 bougon_p
+** Last update Wed Jan  4 17:59:19 2017 bougon_p
+*/
+
+void		draw_square(uint32_t **img, t_point *orig, size_t size, uint32_t color)
+{
+  t_point	pos;
+
+  pos.x = orig->x;
+  pos.y = orig->y - size;
+  while (pos.x < orig->x + size)
+    {
+      while (pos.y < orig->y + size)
+	{
+	  img[pos.y][pos.x] = color;
+	  pos.y++;
+	}
+      pos.x++;
+    }
+}

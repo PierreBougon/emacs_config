@@ -1,0 +1,13 @@
+/*
+** aplly_texture.c for apply_tec in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat May 21 02:49:03 2016 bougon_p
+** Last update Sat May 21 03:03:34 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+int	apply_tex

@@ -1,0 +1,14 @@
+/*
+** player.c for PLAYER in /home/bougon_p/rendu/gfx_scroller
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat Mar 19 00:12:11 2016 bougon_p
+** Last update Sat Mar 19 00:12:21 2016 bougon_p
+*/
+
+void	move_player()
+{
+
+}

@@ -1,0 +1,38 @@
+/*
+** quant.h for header in /home/bougon_p/rendu/gfx_colle_science_fiction/colle4
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 16:41:03 2016 bougon_p
+** Last update Thu May 19 16:52:48 2016 bougon_p
+*/
+
+#ifndef QUANT_H_
+# define QUANT_H_
+
+# define UNUSED __attribute__((unused))
+# define WIDTH 1420
+# define HEIGHT 800
+
+#include <lapin.h>
+
+typedef	struct		s_data
+{
+  t_bunny_window	*win;
+  t_bunny_pixelarray	*bg;
+  t_bunny_pixelarray	*intre;
+  t_bunny_pixelarray	*r_intre;
+  t_bunny_pixelarray	*pix;
+  t_bunny_music		*music;
+}			t_data;
+
+void			tekpixel(t_bunny_pixelarray *,
+				 t_bunny_position *, t_color *);
+t_color			*getpixel(t_bunny_pixelarray *,
+				  t_bunny_position *);
+void			my_blit(t_bunny_pixelarray *pix_ar,
+				t_bunny_pixelarray *pix_ar2,
+				t_bunny_position offset);
+
+#endif /* !QUANT_H_ */

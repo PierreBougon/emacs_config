@@ -1,0 +1,4 @@
+*.o
+*~
+#*#
+octet_de_codage

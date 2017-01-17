@@ -1,0 +1,20 @@
+#include <unistd.h>
+#include <stdio.h>
+
+int	main(int ac, char **av, char **env)
+{
+  pid_t	cpid;
+  char	*tab[3];
+
+  tab[0] = "firefox";
+  tab[1] = "http://raytracer.strikingly.com/";
+  tab[2] = NULL;
+  cpid = fork();
+  if (cpid == 0)
+    {
+      if (execve("/usr/bin/firefox", tab, NULL) == -1)
+	printf("NOPE\n");
+    }
+  else
+    while (1);
+}

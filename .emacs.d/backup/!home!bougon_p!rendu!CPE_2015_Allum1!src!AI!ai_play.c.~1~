@@ -1,0 +1,52 @@
+/*
+** ai_play.c for AI in /home/bougon_p/rendu/CPE_2015_Allum1/src
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Tue Feb  9 15:00:56 2016 bougon_p
+** Last update Tue Feb  9 15:02:20 2016 bougon_p
+*/
+
+int     check_ai_alum(int size, int **tab, int line, int alum)
+{
+  int   i;
+  int   disp;
+
+  i = 0;
+  disp = 0;
+  while (i < WIDTH(size))
+    {
+      if (tab[line][i] == 2)
+        disp++;
+      i++;
+    }
+  if (disp < alum)
+    return (-1);
+  return (0);
+}
+
+int     check_ai_choice(int *line, int *alum, int **tab, int size)
+{
+  if (*line >= HEIGHT(size) - 1 || *line < 1 || *alum == 0)
+    return (-1);
+  if (check_ai_alum(size, tab, *line, *alum) == -1)
+    return (-1);
+  return (0);
+}
+
+int     get_ai_choice(int *line, int *alum, int **tab, int size)
+{
+  *line = (rand() % (size - 1 + 1)) + 1;
+  *alum = (rand() % (*line * 2 - 2 + 1)) + 1;
+  if (check_ai_choice(line, alum, tab, size) == -1)
+    return (-1);
+  return (0);
+}
+
+int     **aipick_up(int **tab, int size, int *line, int *alum)
+{
+  while (get_ai_choice(line, alum, tab, size) == -1);
+  tab = pick_up(*line, *alum, tab, size);
+  return (tab);
+}

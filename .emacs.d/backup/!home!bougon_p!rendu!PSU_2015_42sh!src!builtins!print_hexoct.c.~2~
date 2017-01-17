@@ -1,0 +1,29 @@
+/*
+** print_hexoct.c for print in /home/bougon_p/rendu/PSU_2015_42sh
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Tue May 31 14:27:01 2016 bougon_p
+** Last update Tue May 31 14:42:18 2016 bougon_p
+*/
+
+#include "42s.h"
+
+void		print_hexa(char *str)
+{
+  unsigned int	nb;
+
+  if ((nb = my_get_nbr_base_limit(str, "0123456789abcdef")) > 0)
+    return ;
+  printf("%c", nb);
+}
+
+void		print_octal(char *str)
+{
+  unsigned int	nb;
+
+  if ((nb = my_get_nbr_base_limit(str, "01234567")) > 0)
+    return ;
+  printf("%c", nb);
+}

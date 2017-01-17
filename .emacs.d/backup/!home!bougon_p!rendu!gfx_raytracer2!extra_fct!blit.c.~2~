@@ -1,0 +1,28 @@
+/*
+** blit.c for blit in /home/bougon_p/rendu/gfx_raytracer2/extra_fct
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Apr 20 16:14:28 2016 bougon_p
+** Last update Wed Apr 20 16:18:14 2016 bougon_p
+*/
+
+#include "lapin.h"
+
+typedef struct		s_data
+{
+  t_bunny_pixelarray	*pxa;
+  t_bunny_window	*win;
+}			t_data;
+
+int	main()
+{
+  if (*env == NULL)
+    return (my_puterr("Invalid environment"));
+  bunny_set_loop_main_function(mainloop);
+  bunny_loop(data.win, 30, &data);
+  bunny_delete_clipable(&data);
+  bunny_stop(data.win);
+  return (0);
+}

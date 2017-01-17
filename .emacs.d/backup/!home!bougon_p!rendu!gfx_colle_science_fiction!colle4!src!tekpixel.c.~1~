@@ -1,0 +1,34 @@
+/*
+** tekpixel.c for tekpixel
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 13:18:27 2016 bougon_p
+** Last update Thu May 19 14:28:49 2016 Mathieu Sauvau
+*/
+
+#include "quant.h"
+
+void		tekpixel(t_bunny_pixelarray *pix,
+			 t_bunny_position *pos,
+			 t_color *color)
+{
+  int		i;
+  t_color	*col;
+
+  col = (t_color *)pix->pixels;
+  i = pix->clipable.clip_width * pos->y + pos->x;
+  col[i] = *color;
+}
+
+t_color		*getpixel(t_bunny_pixelarray *pix,
+			  t_bunny_position *pos)
+{
+  int		i;
+  t_color	*col;
+
+  col = (t_color *)pix->pixels;
+  i = pix->clipable.clip_width * pos->y + pos->x;
+  return (&col[i]);
+}

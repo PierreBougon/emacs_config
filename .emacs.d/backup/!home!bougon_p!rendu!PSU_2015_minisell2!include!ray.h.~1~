@@ -1,0 +1,53 @@
+/*
+** ray.h for RAY in /home/bougon_p/rendu/gfx_raytracer1/include
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Mar 11 18:17:48 2016 bougon_p
+** Last update Sun Mar 13 23:20:50 2016 bougon_p
+*/
+
+#ifndef	RAY_H_
+# define RAY_H_
+
+# include "lapin.h"
+# include "my.h"
+# include "struct.h"
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdbool.h>
+# include <math.h>
+
+# define GREY 0x00535353
+# define GREY2 0x00232323
+
+/*
+** DEFINES
+*/
+
+
+/*
+**     _____________________
+**    / ____________________\
+** ## |PROTOTYPING FUNCTIONS| ##
+**    +---------------------+
+**
+*/
+
+
+/*
+** MAIN
+*/
+
+void	translation_sphere(t_3dpos *, t_3dpos *);
+void	tekpixel(t_bunny_pixelarray *, t_bunny_position *, t_color *);
+int	draw_scene(t_data *);
+void	tekray(const t_bunny_position *, int *, int *, int *);
+int	calc_plan(t_data*, t_vecpos *, int);
+void	lumos(t_data *, t_vecpos *, double);
+void	sphere_collision(t_vecpos *, t_bunny_position, t_data *);
+
+#endif /* !RAY_H_ */

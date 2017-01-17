@@ -1,0 +1,36 @@
+/*
+** div.c for div in /home/bougon_p/rendu/TEK2/cpp_d02m/ex4
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 11:13:51 2017 bougon_p
+** Last update Thu Jan  5 11:31:24 2017 bougon_p
+*/
+
+int	integer_div(int a, int b)
+{
+  if (b == 0)
+    return (0);
+  return (a / b);
+}
+
+float	decimal_div(int a, int b)
+{
+  float	res;
+
+  if (b == 0)
+    return (0);
+  res = (float)(a / b);
+  return (res);
+}
+
+void	exec_div(t_div *operation)
+{
+  if (operation->div_type == INTEGER)
+    operation->div_op->res = integer_div(operation->div_op->a,
+					 operation->div_op->b);
+  else
+    operation->div_op->res = decimal_div(operation->div_op->a,
+					 operation->div_op->b);
+}

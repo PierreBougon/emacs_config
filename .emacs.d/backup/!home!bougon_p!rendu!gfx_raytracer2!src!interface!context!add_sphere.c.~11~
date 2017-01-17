@@ -1,0 +1,24 @@
+/*
+** add_sphere.c for sphere in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Apr 24 17:59:29 2016 bougon_p
+** Last update Wed Apr 27 17:50:00 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+int	add_sphere(UNUSED t_data *data)
+{
+  if (data->click_action == true
+      && data->mbutton == BMB_LEFT
+      && data->mstate == GO_DOWN)
+    {
+      data->itfc.add.need_form = false;
+      data->click_action = false;
+      printf("ADD SPHERE WALA\n");
+    }
+  return (0);
+}

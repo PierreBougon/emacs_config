@@ -1,0 +1,16 @@
+/*
+** loop.c for loop in /home/bougon_p/rendu/CPE_2015_Allum1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Feb  8 22:42:25 2016 bougon_p
+** Last update Mon Feb  8 22:43:20 2016 bougon_p
+*/
+
+#include "alum1.h"
+
+int	game_loop(int size, int **tab)
+{
+
+}

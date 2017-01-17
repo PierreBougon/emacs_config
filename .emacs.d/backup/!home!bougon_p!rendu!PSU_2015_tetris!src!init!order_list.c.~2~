@@ -1,0 +1,47 @@
+/*
+** order_list.c for ORDER in /home/bougon_p/rendu/PSU_2015_tetris
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Mar 10 19:35:55 2016 bougon_p
+** Last update Thu Mar 10 19:51:31 2016 bougon_p
+*/
+
+#include "tetris.h"
+
+void		swap(t_cdlist *elem, t_cdlist *elem2)
+{
+  t_cdlist	*tmp;
+
+  tmp = elem;
+  elem->next = elem2->next;
+  elem->prev = elem2->prev;
+  elem2->next->prev = elem;
+  elem2->prev->next = elem;
+
+  elem2->next = tmp->next;
+  elem2->prev = tmp->prev;
+  tmp->next->prev = elem2;
+  tmp->prev->next = elem2;
+}
+
+int		order_list(t_arglist *arg)
+{
+  t_cdlist	*tmp;
+  int		cmp;
+
+  tmp = arg->root;
+  while (tmp->next != arg->root)
+    {
+      while ((cmp = my_strcmp(tmp->data->name, tmp->next->data->name)) <= 0
+	      && tmp->next != arg->root)
+	tmp = tmp->next;
+      if (cmp > 0)
+	{
+	  swap(tmp, tmp->next);
+	  tmp = arg->root;
+	}
+    }
+  return (0);
+}

@@ -1,0 +1,32 @@
+int main ( v o i d )
+{
+  t_bmp_header		header;
+  t_bmp_info_header	info;
+  unsigned int		*buffer;
+  unsigned int		**img;
+  t_point		p = {0, 0};
+  size_t		size = 54;
+  int			d;
+  / * C r e a t e s a two−d i m e n s i o n a l a r r a y . * /
+      b u f f e r = malloc ( s i z e * s i z e * s i z e o f ( * b u f f e r ) ) ;
+  img
+    = malloc ( s i z e * s i z e * s i z e o f ( * b u f f e r ) ) ;
+  img
+    = m a l l o c ( s i z e * s i z e o f ( * img ) ) ;
+  memset ( b u f f e r , 0 , s i z e * s i z e o f ( * b u f f e r ) ) ;
+  f o r ( s i z e _ t i = 0; i < s i z e ; ++ i )
+    img [ i ] = b u f f e r + i * s i z e ;
+  make_bmp_header ( & header , s i z e ) ;
+  make_bmp_info_header ( & i n f o , s i z e ) ;
+  draw_square ( img , &p , s i z e , 0x0000FFFF ) ;
+  p . x = 10;
+  p . y = 10;
+  draw_square ( img , &p , 2 2 , 0x00FF0000 ) ;
+
+  d = open ( " s q u a r e . bmp" , O_CREAT | O_TRUNC | O_WRONLY, 0644) ;
+  w r i t e ( d , &header , s i z e o f ( header ) ) ;
+  write ( d , &info , sizeof ( info ) ) ;
+  write ( d , buffer , size * size * sizeof ( * buffer ) ) ;
+  close ( d ) ;
+  r e t u r n EXIT_SUCCESS ;
+}

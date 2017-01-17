@@ -1,0 +1,23 @@
+/*
+** white_rabbit.c for rabbit in /home/bougon_p/rendu/TEK2/cpp_d01/ex00
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Jan  4 10:34:47 2017 bougon_p
+** Last update Wed Jan  4 10:44:14 2017 bougon_p
+*/
+
+int	follow_the_white_rabbit(void)
+{
+  int	result;
+  int	rand;
+
+  result = 0;
+  while (1)
+    {
+      rand = (random() % 37) + 1;
+      result += rand;
+      if ()
+    }
+}

@@ -1,0 +1,130 @@
+/*
+** solver.c for solve in /home/bougon_p/rendu/dante/profondeur
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri May 13 00:05:57 2016 bougon_p
+** Last update Sun May 15 02:51:56 2016 bougon_p
+*/
+
+#include "dante.h"
+
+int	endx;
+int	endy;
+
+t_pile		*init_pile()
+{
+  t_pile	*new;
+
+  if (!(new = malloc(sizeof(t_node))))
+    return (NULL);
+  new->next = NULL;
+  new->prev = NULL;
+  return (new);
+}
+
+int	add_to_pile(t_pile **curr_pile, t_node *node)
+{
+  t_pile	*new;
+
+  if (!(new = malloc(sizeof(t_node))))
+    return (1);
+  new->next = NULL;
+  new->prev = *curr_pile;
+  (*curr_pile)->next = new;
+  new->node = node;
+  *curr_pile = new;
+  return (0);
+}
+
+int	calc_cost(t_node *node)
+{
+  return (ABS(node->pos.x - endx) + ABS(node->pos.y - endy));
+}
+
+int	add_to_open(t_pile **open_pile, t_node *node)
+{
+  t_pile	*new;
+  t_pile	*tmp;
+
+  if (!(new = malloc(sizeof(t_node))))
+    return (1);
+  new->node = node;
+  node->cost = calc_cost(node);
+  if (!*open_pile)
+    {
+      new->next = NULL;
+      new->prev = NULL;
+      return (0);
+    }
+  tmp = *open_pile;
+  while (tmp && new->node->cost >= tmp->node->cost)
+    tmp = tmp->next;
+  if (tmp->prev == NULL)
+    {
+      new->prev = NULL;
+      new->next = *open_pile;
+      (*open_pile)->prev = new;
+      (*open_pile) = new;
+    }
+  else if (tmp->next == NULL)
+    {
+      new->next = NULL;
+      new->prev = tmp;
+      tmp->next = new;
+    }
+  else
+    {
+      new->next = tmp->next;
+      new->prev = tmp;
+      tmp->next->prev = new;
+      tmp->next = new;
+    }
+  return (0);
+}
+
+void		depop_root(t_pile *open)
+{
+  if (open->next)
+    open->next->prev = NULL;
+  else
+    open = NULL;
+}
+
+bool		is_on_open(t_node *node, t_pile *open)
+{
+  t_pile	*tmp;
+
+  tmp = open;
+  while (tmp)
+    {
+      if (tmp->node == node)
+	return (true);
+      tmp = tmp->next;
+    }
+  return (false);
+}
+
+int		astar_search(t_graph *graph)
+{
+  t_pile	*open_pile;
+  t_pile	*curr_pile;
+
+  if (!(open_pile = init_pile()))
+    return (1);
+  endx = graph->width - 1;
+  endy = graph->height - 1;
+  open_pile->node = graph->root;
+  open_pile->node->cost = 0;
+  while (open_pile)
+    {
+      curr_pile = open_pile;
+      depop_root(open_pile);
+      if (curr_pile->node->status == END)
+	return (0);
+      else if (!check_sons(curr_pile, &open_pile))
+	return (1);
+    }
+  return (puterr(UNSOLV_ERR), -1);
+}

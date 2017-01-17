@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+typedef struct s_lol
+{
+  int		i;
+}		t_lol;
+
+int	function(int a)
+{
+  return (0);
+}
+
+int	main()
+{
+  int ( * * "  a" );
+  int	b;
+
+  b = sizeof(a);
+  printf("%d\n", b);
+  return (0);
+}

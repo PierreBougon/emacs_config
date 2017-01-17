@@ -1,0 +1,10 @@
+[client] 
+socket=/home/bougon_p/mysql/mysql.sock 
+[mysqld] 
+datadir=/home/bougon_p/mysql 
+socket=/home/bougon_p/mysql/mysql.sock 
+skip-networking 
+max_allowed_packet=16M 
+[mysqld_safe] 
+log-error=/home/bougon_p/mysql/mysql.log 
+pid-file=/home/bougon_p/mysql/mysql.pid 

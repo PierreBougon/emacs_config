@@ -1,0 +1,18 @@
+/*
+** tekray.c for tekray in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar 13 01:36:00 2016 bougon_p
+** Last update Sun Mar 13 03:11:58 2016 bougon_p
+*/
+
+#include "ray.h"
+
+void	tekray(const t_bunny_position *screen_info, int *x, int *y, int *z)
+{
+  *x = -(screen_info[0].x / 2) + screen_info[1].x;
+  *y = (screen_info[0].y / 2) + screen_info[1].y;
+  *z = 100;
+}

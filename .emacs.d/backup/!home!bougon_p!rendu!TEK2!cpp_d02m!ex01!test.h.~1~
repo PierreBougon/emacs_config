@@ -1,0 +1,6 @@
+typedef struct s_str_op
+{
+  char *str1;
+  char *str2;
+  char *res;
+}

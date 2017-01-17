@@ -1,0 +1,27 @@
+/*
+** ex_6.h for dedze in /home/bougon_p/rendu/TEK2/cpp_d01/ex06
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Jan  4 22:35:06 2017 bougon_p
+** Last update Wed Jan  4 22:40:08 2017 bougon_p
+*/
+
+#ifndef EX_6_H_
+# define EX_6_H_
+
+typedef struct	s_foo2
+{
+  int		foo;
+  struct s_foo2	bar;
+}		t_foo2;
+
+typedef struct	s_foo
+{
+  t_foo2	foo;
+  int		bar;
+}		t_foo;
+
+
+# endif /* EX_6_H_ */

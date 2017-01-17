@@ -1,0 +1,26 @@
+/*
+** basic_wallpaper.c for wp in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon May  2 01:56:49 2016 bougon_p
+** Last update Mon May  2 01:57:53 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+
+
+int	basic_wallpaper(t_data *data)
+{
+  if (data->rt.img != NULL
+      && data->click_action)
+    {
+      printf("CREATE WP\n");
+      data->click_action = false;
+    }
+  else
+    data->click_action = false;
+  return (0);
+}

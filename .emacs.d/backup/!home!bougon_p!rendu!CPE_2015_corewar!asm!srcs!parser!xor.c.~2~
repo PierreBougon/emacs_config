@@ -1,0 +1,16 @@
+/*
+** xor.c for xor in /home/bougon_p/rendu/CPE_2015_corewar/asm
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Tue Mar 15 20:59:22 2016 bougon_p
+** Last update Tue Mar 15 20:59:27 2016 bougon_p
+*/
+
+#include "asm.h"
+
+int	w_xor(t_info *info, int fd)
+{
+  return (0);
+}

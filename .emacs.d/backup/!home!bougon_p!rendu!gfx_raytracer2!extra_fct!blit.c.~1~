@@ -1,0 +1,13 @@
+/*
+** blit.c for blit in /home/bougon_p/rendu/gfx_raytracer2/extra_fct
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Apr 20 16:14:28 2016 bougon_p
+** Last update Wed Apr 20 16:14:42 2016 bougon_p
+*/
+
+#include "lapin.h"
+
+int	main

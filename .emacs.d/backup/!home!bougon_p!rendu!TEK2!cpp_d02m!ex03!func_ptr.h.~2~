@@ -1,0 +1,19 @@
+/*
+** func_ptr.h for fct in /home/bougon_p/rendu/TEK2/cpp_d02m/ex03
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 10:52:26 2017 bougon_p
+** Last update Thu Jan  5 10:59:00 2017 bougon_p
+*/
+
+#ifndef FUNC_PTR_H_
+# define FUNC_PTR_H_
+
+void	print_42(char *);
+void	print_upper(char *);
+void	print_normal(char *);
+void	print_reverse(char *);
+
+#endif /* !FUNC_PTR_H_ */

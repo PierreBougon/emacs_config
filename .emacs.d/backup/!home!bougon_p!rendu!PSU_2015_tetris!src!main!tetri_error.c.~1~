@@ -1,0 +1,16 @@
+/*
+** tetri_error.c for ERROR in /home/bougon_p/rendu/PSU_2015_tetris
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar  6 16:24:23 2016 bougon_p
+** Last update Sun Mar  6 16:27:01 2016 bougon_p
+*/
+
+#include "tetris.h"
+
+int	check_name(t_tetri *tetri)
+{
+
+}

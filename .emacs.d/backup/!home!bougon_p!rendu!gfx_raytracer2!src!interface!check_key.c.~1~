@@ -1,0 +1,11 @@
+/*
+** check_key.c for check in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon May 16 18:19:19 2016 bougon_p
+** Last update Mon May 16 18:21:43 2016 bougon_p
+*/
+
+#include "raytracer.h"

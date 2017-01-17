@@ -1,0 +1,46 @@
+/*
+** check_tab.c for CHECK in /home/bougon_p/rendu/CPE_2015_Allum1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Feb 10 18:59:30 2016 bougon_p
+** Last update Thu Feb 11 22:09:54 2016 bougon_p
+*/
+
+#include "alum1.h"
+
+void	reset_var(t_aidata *aidata)
+{
+  aidata->max_line_alu = 0;
+  aidata->act_line = 0;
+}
+
+int		refresh_tab_var(int **tab, int size, t_aidata *aidata)
+{
+  int           i;
+  int           j;
+  unsigned int  nb_alu;
+  int           add_line;
+
+  j = -1;
+  reset_var(aidata);
+  while (++j < HEIGHT(size))
+    {
+      i = -1;
+      nb_alu = 0;
+      add_line = 0;
+      while (++i < WIDTH(size))
+        {
+          if (tab[j][i] == 2)
+	    {
+	      nb_alu++;
+	      add_line = 1;
+	    }
+          if (nb_alu > aidata->max_line_alu)
+            aidata->max_line_alu = nb_alu;
+        }
+      aidata->act_line += add_line;
+    }
+  return (0);
+}

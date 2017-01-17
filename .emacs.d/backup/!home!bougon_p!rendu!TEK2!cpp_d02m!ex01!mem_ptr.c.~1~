@@ -1,0 +1,14 @@
+/*
+** mem_ptr.c for mem in /home/bougon_p/rendu/TEK2/cpp_d02m/ex01
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 09:40:50 2017 bougon_p
+** Last update Thu Jan  5 09:41:33 2017 bougon_p
+*/
+
+void add_str(char *str1, char *str2, char **res)
+{
+
+}

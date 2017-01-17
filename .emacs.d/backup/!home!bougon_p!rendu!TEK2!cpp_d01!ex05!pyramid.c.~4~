@@ -1,0 +1,29 @@
+/*
+** pyramid.c for pyramid in /home/bougon_p/rendu/TEK2/cpp_d01/ex05
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Jan  4 20:57:49 2017 bougon_p
+** Last update Wed Jan  4 21:14:32 2017 bougon_p
+*/
+
+int	pyramid_path(int size, int **map)
+{
+  int	max;
+
+  max = 0;
+  printf("%d\n", map[0][0]);
+}
+
+int	main()
+{
+  int map[4][4] =
+    {
+      {0,0,0,0},
+      {7,4, 0, 0},
+      {2, 3, 6, 0},
+      {8, 5, 9, 3}
+    };
+  pyramid_path(4, &map[0][0]);
+}

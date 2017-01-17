@@ -1,0 +1,18 @@
+/*
+** ecritunnb.c for NB in /home/bougon_p/rendu/BootStrap/bootstrap_CoreWar
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Feb 24 15:29:08 2016 bougon_p
+** Last update Wed Feb 24 15:36:47 2016 bougon_p
+*/
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int	main()
+{
+creat();
+}

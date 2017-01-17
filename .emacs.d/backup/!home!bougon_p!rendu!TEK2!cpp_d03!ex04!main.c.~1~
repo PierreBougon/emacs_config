@@ -1,0 +1,28 @@
+int         main()
+{
+  String    this;
+
+  StringInit(&this, "Hello ");
+  printf("%s= Hello\n", this.str);
+  this.append_c(&this, "World!");
+  printf("%s = Hello World!\n", this.str);
+  this.clear(&this);
+  printf("%s#==CLEAR==#\n", this.str);
+  this.assign_c(&this, "ABC");
+  printf("%s = ABC\n", this.str);
+  printf("POS 2:%c = B\n", this.at(&this, 1));
+  printf("%s (%d) = ABC (3)\n", this.str, this.size(&this));
+  this.assign_c(&this, "DUMP THIS = DUMP THIS\n");
+  this.dump(&this);
+  this.assign_c(&this, "Test This\n");
+  printf("%d = 1\n", this.compare_c(&this, "Test"));
+  this.assign_c(&this, "42");
+  printf("%d = 42\n", this.to_int(&this));
+  this.assign_c(&this, "Le C++ c'est cool");
+  printf("%s = Le C++ c'est cool!\n", this.str);
+  this.insert_c(&this, 13, "pas ");
+  printf("%s = Le C++ c'est pas cool!\n", this.str);
+  printf("%d = -1\n", this.empty(&this));
+  StringDestroy(&this);
+  return (0);
+}

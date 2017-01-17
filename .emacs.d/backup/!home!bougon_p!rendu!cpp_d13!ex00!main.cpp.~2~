@@ -1,0 +1,7 @@
+#include "Toy.h"
+int main()
+{
+  Toy t("bite");
+
+  t.getName;
+}

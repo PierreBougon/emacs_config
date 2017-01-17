@@ -1,0 +1,11 @@
+/*
+** open_list.c for open in /home/bougon_p/rendu/dante/astar
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun May 15 02:54:27 2016 bougon_p
+** Last update Sun May 15 02:54:32 2016 bougon_p
+*/
+
+#include "dante.h"

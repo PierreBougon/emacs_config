@@ -1,0 +1,12 @@
+[network]
+port=12345
+max_client=0
+
+[effect]
+type=pastel
+level=-1
+radius=5
+
+[general]
+width=680
+height=420

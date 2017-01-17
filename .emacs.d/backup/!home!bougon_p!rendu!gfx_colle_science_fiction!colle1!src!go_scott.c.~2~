@@ -1,0 +1,87 @@
+/*
+** go_scott.c for fct in /home/bougon_p/rendu/gfx_colle_science_fiction/colle1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 13:28:52 2016 bougon_p
+** Last update Thu May 19 14:02:13 2016 bougon_p
+*/
+
+#include "quant.h"
+
+void			get_arround_pixel(t_color *arr_col[4], t_bunny_position *pos)
+{
+  t_bunny_position	tmp;
+
+  tmp.x = pos->x - 1;
+  tmp.y = pos->y;
+  arr_col[0] = getpixel(scott, &tmp);
+  tmp.x = pos->x + 1;
+  tmp.y = pos->y;
+  arr_col[1] = getpixel(scott, &tmp);
+  tmp.x = pos->x;
+  tmp.y = pos->y - 1;
+  arr_col[2] = getpixel(scott, &tmp);
+  tmp.x = pos->x;
+  tmp.y = pos->y + 1;
+  arr_col[3] = getpixel(scott, &tmp);
+}
+
+void			fill_first_line(t_bunny_pixelarray *scott,
+				       t_bunny_pixelarray *w_scott)
+{
+  t_color		*col;
+  t_color		arr_col[4];
+  t_color		white;
+  t_color		alpha;
+  t_bunny_position	pos;
+
+  pos.y = 0;
+  white.full = WHITE;
+  my_bzero(&alpha, 4);
+  while (++pos.y < scott->clipable.clip_height - 1)
+    {
+      pos.x = 0;
+      while (++pos.x < scott->clipable.clip_width - 1)
+	{
+	  col = getpixel(scott, &pos);
+	  get_arround_pixel(&arr_col, &pos);
+	  if (col->argb[3] != 0 &&
+	      (acc_coll[0]->argb[3] == 0 || acc_coll[1]->argb[3] == 0
+	       || acc_coll[2]->argb[3] == 0 || acc_coll[3]->argb[3] == 0))
+	    tekpixel(w_scott, &pos, &white);
+	  else
+	    tekpixel(w_scott, &pos, &white);
+	}
+    }
+}
+
+/* void			fill_next_line(t_bunny_pixelarray *scott, */
+/* 				       t_bunny_pixelarray *w_scott) */
+/* { */
+/*   t_color		*col; */
+/*   t_color		arr_col[4]; */
+/*   t_color		white; */
+/*   t_color		alpha; */
+/*   t_bunny_position	pos; */
+
+/*   pos.y = 0; */
+/*   white.full = WHITE; */
+/*   my_bzero(&alpha, 4); */
+/*   while (++pos.y < scott->clipable.clip_height - 1) */
+/*     { */
+/*       pos.x = 0; */
+/*       while (++pos.x < scott->clipable.clip_width - 1) */
+/* 	{ */
+/* 	  col = getpixel(scott, &pos); */
+/* 	  get_arround_pixel(&arr_col, &pos); */
+/* 	  if (col->argb[3] != 0 && */
+/* 	      (acc_coll[0]->argb[3] == 0 || acc_coll[1]->argb[3] == 0 */
+/* 	       || acc_coll[2]->argb[3] == 0 || acc_coll[3]->argb[3] == 0)) */
+/* 	    tekpixel(w_scott, &pos, &white); */
+/* 	  else if (col->full != WHITE) */
+/* 	    tekpixel(w_scott, &pos, &alpha); */
+/* 	} */
+/*     } */
+/* } */

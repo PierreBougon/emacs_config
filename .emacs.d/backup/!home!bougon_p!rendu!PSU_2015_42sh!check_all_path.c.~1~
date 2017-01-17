@@ -1,0 +1,11 @@
+/*
+** check_all_path.c for check_path in /home/bougon_p/rendu/PSU_2015_42sh
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 26 00:32:55 2016 bougon_p
+** Last update Thu May 26 00:33:12 2016 bougon_p
+*/
+
+#include "42sh.h"

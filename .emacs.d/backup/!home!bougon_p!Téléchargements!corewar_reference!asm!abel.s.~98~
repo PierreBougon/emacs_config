@@ -1,0 +1,6 @@
+	.name "Abel"
+	.comment "L'amer noir."
+
+	lld %:hi, r12
+
+hi:	live %42

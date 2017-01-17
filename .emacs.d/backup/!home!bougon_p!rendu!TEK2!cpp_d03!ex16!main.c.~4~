@@ -1,0 +1,12 @@
+#include "String.h"
+
+int main()
+{
+  String string;
+  char *str;
+  str = malloc(100);
+  bzero(str, 100);
+  StringInit(&string, "comment this shit");
+  string.copy(&string, str, 8, 0);
+  puts(str);
+}

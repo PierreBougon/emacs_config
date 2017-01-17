@@ -1,0 +1,41 @@
+/*
+** ray.h for RAY in /home/bougon_p/rendu/gfx_raytracer1/include
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Mar 11 18:17:48 2016 bougon_p
+** Last update Mon Mar 28 12:09:36 2016 bougon_p
+*/
+
+#ifndef	RAY_H_
+# define RAY_H_
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdbool.h>
+
+# include "my.h"
+# include "struct.h"
+
+/*
+** DEFINES
+*/
+
+
+
+/*
+**     _____________________
+**    / ____________________\
+** ## |PROTOTYPING FUNCTIONS| ##
+**    +---------------------+
+**
+*/
+
+
+/*
+** MAIN
+*/
+
+#endif /* !RAY_H_ */

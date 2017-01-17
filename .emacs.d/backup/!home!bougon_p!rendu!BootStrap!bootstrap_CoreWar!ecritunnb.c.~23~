@@ -1,0 +1,37 @@
+/*
+** ecritunnb.c for NB in /home/bougon_p/rendu/BootStrap/bootstrap_CoreWar
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Feb 24 15:29:08 2016 bougon_p
+** Last update Wed Feb 24 16:30:57 2016 bougon_p
+*/
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <string.h>
+
+typedef struct	s_yolo
+{
+  char		str[40];
+}		t_yolo;
+
+int	main()
+{
+  int	fd;
+  char	ch;
+  int	nb;
+  t_yolo	yolo;
+
+  &yolo.str[0] = memset(&yolo.str[0], 0, 40);
+  strcpy(yolo.str, "Le corewar, c'est swag !!");
+  nb = 123456789;
+  ch = 'k';
+  if ((fd = creat("coucou", 0755)) == -1)
+    return (1);
+  write(fd, &nb, sizeof(nb));
+  write(fd, &ch, sizeof(ch));
+  write(fd, &yolo.str[0], 40);
+}

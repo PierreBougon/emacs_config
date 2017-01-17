@@ -1,0 +1,7 @@
+enum	toto
+  {
+    TOTO,
+    TATA,
+    TITI,
+    TUTU
+  };

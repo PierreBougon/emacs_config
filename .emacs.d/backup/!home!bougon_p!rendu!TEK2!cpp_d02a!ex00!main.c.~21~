@@ -1,0 +1,59 @@
+#include <stdlib.h>
+#include "simple_list.h"
+
+int  main (void)
+{
+  t_list list_head=NULL;
+  unsigned int size;
+  double i=1;
+  double j=2;
+  double k=3;
+  double l=4;
+  double m=5;
+  double n=6;
+  double o=7;
+  double p=8;
+  double q=9;
+  double r=10;
+  double s=11;
+  double t=12;
+
+  puts("##  ADD  ##\n");
+
+  list_add_elem_at_back(&list_head,i);
+  list_add_elem_at_back(&list_head,j);
+  list_add_elem_at_back(&list_head,k);
+  list_add_elem_at_back(&list_head,l);
+  list_add_elem_at_front(&list_head,m);
+  list_add_elem_at_position(&list_head, n, k);
+  size=list_get_size(list_head);
+  list_dump(list_head);
+
+  printf("5, 1, 2, 3, 6, 4\n");
+  printf("There are %u elements on the list\n=======\n\n",size);
+
+
+  puts("##  DEL  ##\n");
+
+
+  list_dump(list_head);
+  puts("");
+  list_del_elem_at_front(&list_head);
+  list_dump(list_head);
+  puts("");
+  list_add_elem_at_position(&list_head, l, l-1);
+  list_dump(list_head);
+  puts("");
+  /* list_add_elem_at_position(&list_head, m, m-1); */
+  /* list_add_elem_at_position(&list_head, t, j); */
+  /* list_del_elem_at_back(&list_head); */
+  /* list_del_elem_at_position(&list_head, j - 1); */
+  size=list_get_size(list_head);
+  list_dump(list_head);
+
+  printf("1, 2, 3, 4, 5\n");
+  printf("There are %u elements on the list\n=======\n\n",size);
+
+
+  return(0);
+}

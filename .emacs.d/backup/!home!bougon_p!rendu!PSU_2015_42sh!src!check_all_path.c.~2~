@@ -1,0 +1,24 @@
+/*
+** check_all_path.c for check_path in /home/bougon_p/rendu/PSU_2015_42sh
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 26 00:32:55 2016 bougon_p
+** Last update Thu May 26 00:37:30 2016 bougon_p
+*/
+
+#include <stdio.h>
+#include "42s.h"
+
+int	check_all_path(t_sh *sh, char *cmd)
+{
+  int	i;
+
+  i = -1;
+  while (sh->env->path[++i])
+    {
+      printf("%s\n", sh->env->path[i]);
+    }
+  return (0);
+}

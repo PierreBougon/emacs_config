@@ -1,0 +1,25 @@
+/*
+** order_list.c for ORDER in /home/bougon_p/rendu/PSU_2015_tetris
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Mar 10 19:35:55 2016 bougon_p
+** Last update Thu Mar 10 19:40:34 2016 bougon_p
+*/
+
+#include "tetris.h"
+
+int		order_list(t_arglist *arg)
+{
+  t_cdlist	*tmp;
+  t_cdlist	*tmp2;
+  int		cmp;
+
+  tmp = arg->root;
+  while (tmp->next != arg->root)
+    {
+      while ((cmp = my_strcmp(tmp->name, tmp->next->name) == 0
+	      && tmp->next != arg->root)
+    }
+}

@@ -1,0 +1,39 @@
+/*
+** tree_traversal.c for tree in /home/bougon_p/rendu/TEK2/cpp_d02a/ex06
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 21:56:32 2017 bougon_p
+** Last update Thu Jan  5 22:12:03 2017 bougon_p
+*/
+
+t_bool	tree_is_empty(t_tree tree)
+{
+  if (tree != NULL)
+    return (FALSE);
+  return (TRUE);
+}
+
+void	tree_node_dump(t_tree_node *tree_node, t_dump_func dump_func)
+{
+  dump_func(tree_node->data);
+}
+
+t_bool		init_tree(t_tree *tree_ptr, void *data)
+{
+  t_tree_node	*root;
+
+  if (!(root = malloc(sizeof(t_tree_node))))
+    return (FALSE);
+  root->data = data;
+  *tree_ptr = root;
+  return (TRUE);
+}
+
+t_tree_node	*tree_add_child(t_tree_node *tree_node, void *data)
+{
+
+}
+
+t_bool		tree_destroy(t_tree* tree_ptr);

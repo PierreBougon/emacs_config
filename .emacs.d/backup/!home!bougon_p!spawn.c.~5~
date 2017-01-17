@@ -1,0 +1,22 @@
+#include <time.h>
+
+int	main(int ac, char **av, char **env)
+{
+  int	i;
+  pid_t	pid;
+  char	*arg[2];
+
+  arg[0] = "xeyes";
+  arg[1] = NULL;
+  while (1)
+    {
+      if (time(0) % 2 == 0)
+	{
+	  pid = fork();
+	  if (pid == 0)
+	    {
+	      execve("xeyes", arg, env);
+	    }
+	}
+    }
+}

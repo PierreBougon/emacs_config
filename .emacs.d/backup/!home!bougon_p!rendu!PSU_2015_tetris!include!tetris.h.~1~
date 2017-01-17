@@ -1,0 +1,68 @@
+/*
+** alum1.h for HEADER in /home/bougon_p/rendu/CPE_2015_Allum1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Feb  8 17:01:30 2016 bougon_p
+** Last update Thu Feb 18 17:02:05 2016 bougon_p
+*/
+
+#ifndef	ALUM1_H_
+# define ALUM1_H_
+
+# define _BSD_SOURCE
+
+# include "my.h"
+# include "get_next_line.h"
+
+# include <time.h>
+# include <stdlib.h>
+# include <unistd.h>
+/* # include <stdio.h> */
+
+# define MAX_INT 2147483647
+# define HEIGHT(size) size + 2
+# define WIDTH(size) size * 2 + 1
+
+typedef struct		s_aidata
+{
+  unsigned int		act_alum;
+  int			line;
+  int			alum;
+  unsigned int		max_line_alu;
+  unsigned int		min_line_alu;
+  unsigned int		longest_line;
+  unsigned int		shortest_line;
+  int			act_line;
+  unsigned int		tmp_nb_alu;
+  int			tmp_add_line;
+}			t_aidata;
+
+/*
+** AI functions
+*/
+
+void	pick_2_lines(t_aidata *);
+void	pick_1_lines(t_aidata *);
+int	**aipick_up(int **, int, t_aidata *);
+int	refresh_tab_var(int **, int, t_aidata *);
+
+/*
+** Game functions
+*/
+
+int	**pick_up(int, int, int **, int);
+int	get_info(int *, int *, int, int **);
+int	game_loop(int, int **, t_aidata *);
+void	print_gamestruct(int, int **);
+
+/*
+** Others fucntions
+*/
+
+char	*get_next_line(const int);
+int	my_putstr_error(char *);
+int	free_tab(int **, int);
+
+#endif /* !ALUM1_H_ */

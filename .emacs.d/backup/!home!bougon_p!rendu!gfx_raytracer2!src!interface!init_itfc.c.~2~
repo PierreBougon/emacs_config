@@ -1,0 +1,24 @@
+/*
+** init_itfc.c for init in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Apr 13 23:33:13 2016 bougon_p
+** Last update Wed Apr 13 23:47:15 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+int	init_itfc(t_itfc *itfc)
+{
+  if ((itfc->layout = bunny_load_pixelarray("assets/img/layout.png")) == NULL)
+    return (my_puterr("Could not perform bunny_load_pixelarray"));
+  /* if ((itfc->context[0] = */
+  /*      bunny_load_pixelarray("assets/img/context")) == NULL) */
+  /*   return (my_puterr("Could not perform bunny_load_pixelarray")); */
+  /* if ((itfc->context[1] = */
+  /*      bunny_load_pixelarray(CONTEXT_WIDTH, CONTEXT_HEIGHT)) == NULL) */
+  /*   return (my_puterr("Could not perform bunny_load_pixelarray")); */
+  itfc->act_context = 0;
+}

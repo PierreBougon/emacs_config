@@ -1,0 +1,80 @@
+/*
+** lumos.c for lumos in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar 13 08:27:32 2016 bougon_p
+** Last update Sun Mar 13 11:57:47 2016 bougon_p
+*/
+
+#include "ray.h"
+
+void	set_pos(t_3dpos *inter_pos, double k, t_vecpos *init_vec)
+{
+  inter_pos->x = init_vec->x * k;
+  inter_pos->y = init_vec->y * k;
+  inter_pos->z = init_vec->z * k;
+}
+
+void	tekraylumia(t_vecpos *v, t_3dpos *inter, t_3dpos *spot)
+{
+  t_vecpos	tmp;
+
+  v->x = spot->x - inter->x;
+  v->y = spot->y - inter->y;
+  v->z = spot->z - inter->z;
+  tmp = *v;
+  v->x = sqrt((pow(tmp.x, 2.0f) + pow(tmp.y, 2.0f)
+  	       + pow(tmp.z, 2.0f)));
+  v->y = sqrt((pow(tmp.x, 2.0f) + pow(tmp.y, 2.0f)
+  	       + pow(tmp.z, 2.0f)));
+  v->z = sqrt((pow(tmp.x, 2.0f) + pow(tmp.y, 2.0f)
+  	       + pow(tmp.z, 2.0f)));
+}
+
+void	tekraynormal(t_3dpos *inter, t_vecpos *norm)
+{
+  norm->x = sqrt((pow(inter->x, 2.0f) + pow(inter->y, 2.0f)
+  	       + pow(inter->z, 2.0f)));
+  norm->y = sqrt((pow(inter->x, 2.0f) + pow(inter->y, 2.0f)
+  	       + pow(inter->z, 2.0f)));
+  norm->z = sqrt((pow(inter->x, 2.0f) + pow(inter->y, 2.0f)
+  	       + pow(inter->z, 2.0f)));
+}
+
+double calc_alpha(t_vecpos *norm, t_vecpos *v)
+{
+  return (norm->x * v->x + norm->y * v->y + norm->z * v->z);
+}
+
+void			lumos(t_data *data, t_vecpos *init_vec,
+			      double k, t_bunny_position *pixpos)
+{
+  t_3dpos		inter_pos;
+  t_vecpos              v;
+  t_vecpos		norm;
+  double			cosalpha;
+
+  set_pos(&inter_pos, k, init_vec);
+  tekraylumia(&v, &inter_pos, &data->spot.pos);
+  tekraynormal(&inter_pos, &norm);
+  cosalpha = calc_alpha(&norm, &v);
+
+
+  /* printf("cosalpha = %f\n\n" */
+  /* 	 , cosalpha); */
+
+  /* printf("VECTEUR NORMAL -> posx = %f, posy = %f, posz = %f\n\n", */
+  /* 	 inter_pos.x, inter_pos.y, inter_pos.z); */
+
+  data->sph.color.argb[0] *= cosalpha;
+  data->sph.color.argb[1] *= cosalpha;
+  data->sph.color.argb[2] *= cosalpha;
+
+  /* data->sph.color.argb[0] = 255; */
+  /* data->sph.color.argb[1] = 255; */
+  /* data->sph.color.argb[2] = 255; */
+
+  data->sph.color.argb[3] = 0;
+}

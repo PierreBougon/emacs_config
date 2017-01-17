@@ -1,0 +1,304 @@
+/*
+** String.c for string in /home/bougon_p/rendu/TEK2/cpp_d03/ex00
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Jan  6 09:29:54 2017 bougon_p
+** Last update Fri Jan  6 16:32:08 2017 bougon_p
+*/
+
+#include "String.h"
+
+static void	assign_s(String *this, String const *str)
+{
+  if (!this)
+    return;
+
+  if (str && str->str)
+    this->str = strdup(str->str);
+  else
+    this->str = NULL;
+}
+
+static void	assign_c(String *this, char const *s)
+{
+  if (!this)
+    return;
+  if (s)
+    this->str = strdup(s);
+  else
+    this->str = NULL;
+}
+
+static void	append_s(String *this, String const *ap)
+{
+  char		*tmp;
+
+  if (!this || !ap)
+    return;
+
+  if (this->str == NULL)
+    return (assign_s(this, ap));
+  if (!(tmp = malloc(strlen(this->str) + strlen(ap->str) + 1)))
+      return;
+  strcpy(tmp, this->str);
+  strcat(tmp, ap->str);
+  free(this->str);
+  this->str = tmp;
+}
+
+static void	append_c(String *this, char const *ap)
+{
+  char		*tmp;
+
+  if (!this)
+    return;
+
+  if (this->str == NULL)
+    return (assign_c(this, ap));
+  if (!(tmp = malloc(strlen(this->str) + strlen(ap) + 1)))
+      return;
+  strcpy(tmp, this->str);
+  strcat(tmp, ap);
+  free(this->str);
+  this->str = tmp;
+}
+
+static char	at(String *this, size_t pos)
+{
+  if (pos > strlen(this->str))
+    return (-1);
+  return (this->str[pos]);
+}
+
+static void	clear(String *this)
+{
+  bzero(this->str, strlen(this->str));
+}
+
+static int	size(String *this)
+{
+  if (!this->str)
+    return (-1);
+  return (strlen(this->str));
+}
+
+static int	compare_s(String *this, const String *str)
+{
+  return (strcmp(this->str, str->str));
+}
+
+static int	compare_c(String *this, char const *str)
+{
+  return (strcmp(this->str, str));
+}
+
+static size_t	copy(String *this, char *s, size_t n, size_t pos)
+{
+  size_t		i = 0;
+
+  while (s[i] && i < n && this->str[pos + i])
+    s[i] = this->str[pos + i++];
+  return (i);
+}
+
+static char const	*c_str(String *this)
+{
+  return (this->str);
+}
+
+static int	empty(String *this)
+{
+  if (this->str == NULL || this->str[0] == 0)
+    return (1);
+  return (-1);
+}
+
+static int	find_s(String *this, const String *str, size_t pos)
+{
+  if (pos < 0 || pos > strlen(this->str))
+    return (-1);
+  char	*ptr = strstr(this->str + pos, str->str);
+  if (ptr == NULL)
+    return (-1);
+  return (ptr - this->str);
+}
+
+static int	find_c(String *this, char const *str, size_t pos)
+{
+  if (pos < 0 || pos > strlen(this->str))
+    return (-1);
+  char	*ptr = strstr(this->str + pos, str);
+  if (ptr == NULL)
+    return (-1);
+  return (ptr - this->str);
+}
+
+static void	insert_c(String *this, size_t pos, char const *str)
+{
+  char		*tmp;
+
+  if (pos > strlen(this->str))
+    return (append_c(this, str));
+  if (!(tmp = malloc(strlen(this->str) + strlen(str) + 1)))
+    return;
+  strncpy(tmp, this->str, pos);
+  this->str[pos] = 0;
+  strcat(tmp, str);
+  strcat(tmp, this->str + pos);
+  free(this->str);
+  this->str = tmp;
+}
+
+static void	insert_s(String *this, size_t pos, String const *str)
+{
+  char		*tmp;
+
+  if (pos > strlen(this->str))
+    return (append_s(this, str));
+  if (!(tmp = malloc(strlen(this->str) + strlen(str->str) + 1)))
+    return;
+  strncpy(tmp, this->str, pos);
+  this->str[pos] = 0;
+  strcat(tmp, str->str);
+  strcat(tmp, this->str + pos);
+  free(this->str);
+  this->str = tmp;
+}
+
+static int	to_int(String *this)
+{
+  return (atoi(this->str));
+}
+
+//need review
+
+static String	*split_s(String *this, char separator)
+{
+  char		*token;
+  char		*str;
+  char		*to_free;
+  String	*tab;
+  int		size = 1;
+
+  str = strdup(this->str);
+  to_free = str;
+  tab = malloc(0);
+  while ((token = strsep(&str, &separator)))
+    {
+      tab = realloc(tab, sizeof(String) * size);
+      tab[size++].str = strdup(token);
+    }
+  free(to_free);
+  return (tab);
+}
+
+//need review
+
+static char	**split_c(String *this, char separator)
+{
+  char		*token;
+  char		*str;
+  char		*to_free;
+  char		**tab;
+  int		size = 1;
+
+  str = strdup(this->str);
+  to_free = str;
+  tab = malloc(0);
+  while ((token = strsep(&str, &separator)))
+    {
+      tab = realloc(tab, sizeof(char *) * size);
+      tab[size++] = strdup(token);
+    }
+  free(to_free);
+  return (tab);
+}
+
+static void	aff(String *this)
+{
+  if (this->str)
+    write(1, this->str, strlen(this->str));
+}
+
+static void	join_c(String *this, char delim, char const **tab)
+{
+  int		i = 0;
+
+  this->str = strdup(tab[0]);
+  while (tab[++i])
+    {
+      this->str = realloc(this->str, strlen(this->str) + strlen(tab[i]) + 1);
+      this->str[strlen(this->str)] = delim;
+      strcat(this->str, tab[i]);
+    }
+}
+
+static void	join_s(String *this, char delim, String *tab)
+{
+  int		i = 0;
+
+  this->str = strdup(tab[0].str);
+  while (tab[++i])
+    {
+      this->str = realloc(this->str,
+			  strlen(this->str) + strlen(tab[i].str) + 1);
+      this->str[strlen(this->str)] = delim;
+      strcat(this->str, tab[i].str);
+    }
+}
+
+static String	*substr(String *this, int offset, int lenght)
+{
+  String	*string;
+
+  string = malloc(sizeof(String));
+  if (offset < 0)
+    offset = strlen(this->str) - offset;
+  if (lenght < 0)
+    offset += lenght;
+  if (offset > 0)
+    string->str = strndup(this->str[offset], lenght);
+  return (string);
+}
+
+void	StringInit(String *this, const char *s)
+{
+  if (this && s)
+    this->str = strdup(s);
+  else if (this && !s)
+    this->str = NULL;
+
+  if (this)
+    {
+      this->assign_s = &assign_s;
+      this->assign_c = &assign_c;
+      this->append_s = &append_s;
+      this->append_c = &append_c;
+      this->at = &at;
+      this->clear = &clear;
+      this->compare_c = &compare_c;
+      this->compare_s = &compare_s;
+      this->copy = &copy;
+      this->c_str = &c_str;
+      this->empty = &empty;
+      this->find_s = &find_s;
+      this->find_c = &find_c;
+      this->insert_s = &insert_s;
+      this->insert_c = &insert_c;
+      this->to_int = &to_int;
+      this->split_s = &split_s;
+      this->split_c = &split_c;
+      this->aff = &aff;
+      this->join_c = &join_c;
+      this->join_s = &join_s;
+      this->substr = &substr;
+    }
+}
+
+void	StringDestroy(String *this)
+{
+  if (this)
+    free(this->str);
+}

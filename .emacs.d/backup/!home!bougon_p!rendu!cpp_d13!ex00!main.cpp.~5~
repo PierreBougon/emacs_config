@@ -1,0 +1,8 @@
+#include "Toy.h"
+int main()
+{
+  Toy t;
+
+  std::cout << t.getName() << std::endl;
+
+}

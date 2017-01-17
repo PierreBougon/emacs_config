@@ -1,0 +1,12 @@
+#include <time.h>
+
+int	main()
+{
+  int	i;
+
+  while (1)
+    {
+      if (time(0) % 2 == 0)
+	system("xeyes");
+    }
+}

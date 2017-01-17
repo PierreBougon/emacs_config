@@ -1,0 +1,11 @@
+/*
+** solver.c for solve in /home/bougon_p/rendu/dante/profondeur
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri May 13 00:05:57 2016 bougon_p
+** Last update Fri May 13 00:06:02 2016 bougon_p
+*/
+
+#include "dante.h"

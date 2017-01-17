@@ -1,0 +1,63 @@
+/*
+** main.c for MAIN in /home/bougon_p/rendu/gfx_scroller
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Mar 18 20:25:37 2016 bougon_p
+** Last update Fri Mar 18 20:52:03 2016 bougon_p
+*/
+
+#include "mega.h"
+
+t_bunny_response	esc_key(t_bunny_event_state state,
+                                t_bunny_keysym keysym, void *_data\
+				)
+{
+  t_data		*data;
+
+  data = _data;
+  if (keysym == BKS_ESCAPE && state == GO_DOWN)
+    return (EXIT_ON_SUCCESS);
+  return (GO_ON);
+}
+
+t_bunny_response	click_actions(t_bunny_event_state state,
+                                      t_bunny_mousebutton button, \
+				      void *_data)
+{
+  t_data		*data;
+
+  data = _data;
+  if (button == BMB_LEFT && state == GO_DOWN)
+    data->left_click = 1;
+  if (button == BMB_LEFT && state == GO_UP)
+    data->left_click = 0;
+  return (GO_ON);
+}
+
+t_bunny_response	mainloop(void *_data)
+{
+  t_data                *data;
+
+  data = _data;
+  bunny_blit(&data->window->buffer, &data->pixarray->clipable, 0);
+  bunny_display(data->window);
+  return (GO_ON);
+}
+
+int		main()
+{
+  t_data	data;
+
+  srand(time(0));
+  data.window = bunny_start(WIN_WIDTH, WIN_HEIGHT, 0, "DEMO");
+  data.pixarray = bunny_new_pixelarray(WIN_WIDTH, WIN_HEIGHT);
+  bunny_set_loop_main_function(mainloop);
+  bunny_set_key_response(esc_key);
+  bunny_set_click_response(click_actions);
+  bunny_loop(data.window, 60, &data);
+  bunny_stop(data.window);
+  bunny_delete_clipable(&data.pixarray->clipable);
+  return (0);
+}

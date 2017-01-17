@@ -1,0 +1,11 @@
+/*
+** mul_div.c for muldiv in /home/bougon_p/rendu/TEK2/cpp_d02m/ex00
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 09:31:25 2017 bougon_p
+** Last update Thu Jan  5 09:31:35 2017 bougon_p
+*/
+
+v o i d add_mul_4param ( i n t f i r s t , i n t second , i n t * add , i n t * mul )

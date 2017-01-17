@@ -1,0 +1,18 @@
+#include <unistd.h>
+#include <stdio.h>
+
+char	*yolo()
+{
+  char	a[3] = "ABC";
+
+  return (&a[0]);
+}
+
+int	main(int ac, char **av, char **env)
+{
+  char	*xxx;
+
+  xxx = yolo();
+  printf("%s\n", xxx);
+  return (0);
+}

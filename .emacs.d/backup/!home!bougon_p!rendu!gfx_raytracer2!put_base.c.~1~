@@ -1,0 +1,15 @@
+/*
+** put_base.c for base in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Apr 29 22:11:09 2016 bougon_p
+** Last update Fri Apr 29 22:13:04 2016 bougon_p
+*/
+
+char		*put_base(unsigned int	nbr, char *base)
+{
+  unsigned int	base_len;
+  int		i;
+}

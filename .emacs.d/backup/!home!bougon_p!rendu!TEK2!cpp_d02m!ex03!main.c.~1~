@@ -1,0 +1,23 @@
+int
+{
+  main ( v o i d )
+char
+    * s t r = " I ’m u s i n g f u n c t i o n p o i n t e r s ! " ;
+  d o _ a c t i o n ( PRINT_NORMAL ,
+		      d o _ a c t i o n ( PRINT_REVERSE ,
+					  d o _ a c t i o n ( PRINT_UPPER ,
+							      d o _ a c t i o n ( PRINT_42 ,
+										  }
+str
+str
+str
+str
+							      )
+					  )
+		      )
+    )
+    ;
+;
+;
+;
+return (0)

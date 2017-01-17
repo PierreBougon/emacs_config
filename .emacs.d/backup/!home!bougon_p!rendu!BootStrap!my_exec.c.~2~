@@ -1,0 +1,36 @@
+/*
+** my_exec.c for exec in /home/bougon_p/rendu/BootStrap
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Mar 16 15:56:17 2016 bougon_p
+** Last update Wed Mar 16 16:18:12 2016 bougon_p
+*/
+
+#include <unistd.h>
+
+int	main(int ac, char **av, char **env)
+{
+  pid_t	cpid;
+  int	pipefd[2];
+
+  if (ac != 2)
+    return (1);
+
+  pipe(pipefd);
+  cpid = fork();
+
+  if (cpid == 0)
+    {
+      dup2(pipefe[0], 0);
+      close(pipefd[1]);
+      execve(av[1], NULL, env);
+    }
+  else
+    {
+      dup2(pipefd[1], 1);
+      close(pipefd[1]);
+      execve(av[2], NULL, env);
+    }
+}

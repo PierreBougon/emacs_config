@@ -1,0 +1,36 @@
+/*
+** pipe.c for pipe in /home/bougon_p/rendu/PSU_2015_minishell2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Tue Apr  5 19:02:48 2016 bougon_p
+** Last update Tue Apr  5 19:37:19 2016 bougon_p
+*/
+
+#include "shell.h"
+
+void	separ_cmd(t_cdlist *tmp)
+{
+  tmp->data->cmd_piped = init_tab(//line, col);
+  while
+}
+
+void	parse_pipes(t_cdlist *tmp)
+{
+  bool	pipe;
+  int	j;
+
+  j = -1;
+  tmp->data->cmd_piped = NULL;
+  while (tmp->data->cmd[++j] != NULL)
+    {
+      if (my_strcmp(tmp->data->cmd[j], "|") == 0)
+	{
+	  pipe = true;
+	  break ;
+	}
+    }
+  if (pipe)
+    separ_cmd(tmp, j);
+}

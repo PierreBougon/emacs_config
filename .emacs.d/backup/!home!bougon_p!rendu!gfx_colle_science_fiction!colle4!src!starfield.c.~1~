@@ -1,0 +1,61 @@
+/*
+** starfield.c for star in /home/bougon_p/rendu/gfx_colle_science_fiction
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 18:00:22 2016 bougon_p
+** Last update Thu May 19 18:09:00 2016 bougon_p
+*/
+
+#include "my.h"
+
+t_starfield	*my_init_starfield(int nstar, int width, int height)
+{
+  t_starfield	*field;
+  int		i;
+
+  if ((field = bunny_malloc(sizeof(t_starfield))) == NULL ||
+      (field->star = bunny_malloc(sizeof(t_star) * nstar)) == NULL)
+    return (NULL);
+  i = 0;
+  while (i < nstar)
+    {
+      field->star[i].y = rand() % (height - 1) + 1;
+      field->star[i].x = width;
+      field->star[i].x_speed =
+	rand() % 10 + (float)(rand() % 10) / 10 + 0.1;
+      i++;
+    }
+  field->nb = nstar;
+  return (field);
+}
+
+void	free_star(t_starfield *field)
+{
+  bunny_free(field->star);
+  bunny_delete_clipable(&field->pic->clipable);
+  bunny_free(field);
+}
+
+void			starfield(t_starfield *field)
+{
+  int			i;
+  t_bunny_position	pos;
+
+  i = 0;
+  my_fill(field->pic->clipable, BLACK);
+  while (i < field->nb)
+    {
+      if (field->star[i].x < 0)
+	{
+	  field->star[i].x = field->pic->buffer.width - 1;
+	  field->star[i].y = rand() % (field->pic->buffer.height - 1);
+	}
+      pos.x = (int) field->star[i].x;
+      pos.y = field->star[i].y;
+      bunny_set_pixel(&field->pic->buffer, pos, WHITE);
+      field->star[i].x = field->star[i].x - field->star[i].x_speed;
+      i++;
+    }
+}

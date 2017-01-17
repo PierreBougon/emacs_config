@@ -1,0 +1,19 @@
+SELECT film.titre AS 'Titre', pays.nom AS 'Pays' FROM film, pays WHERE pays.nom like "Russie" AND pays.id_pays = film.fk_id_pays;
+
+SELECT CONCAT(titre, ' - ', synopsis) AS 'Titre - Synopsis' FROM film WHERE extract(year FROM date_sortie) >= 2013;
+
+SELECT CONCAT(UPPER(titre), ' - ', synopsis) AS 'TITRE - Synopsis' FROM film WHERE extract(year FROM date_sortie) >= 2013 AND synopsis IS NOT NULL;
+
+SELECT CONCAT(UPPER(titre), ' - ', LEFT(synopsis, 20)) AS 'TITRE - Synopsis' FROM film WHERE extract(year FROM date_sortie) >= 2013 AND synopsis IS NOT NULL AND LENGTH(synopsis) > 0;
+
+SELECT titre AS 'Titre', DATEDIFF(NOW(), date_sortie) AS 'NB jours' FROM film WHERE DATEDIFF(NOW(), date_sortie) BETWEEN 30 AND 120 ORDER BY date_sortie;
+
+
+SELECT DISTINCT CONCAT(prenom, ' ',nom) AS 'Prénom Nom', DATEDIFF(NOW(), date_naissance) AS 'NB jours vie' FROM individu INNER JOIN equipe_film WHERE EXTRACT(year FROM date_deces) >= 2006 AND equipe_film.role = 1 AND equipe_film.fk_id_individu = individu.id_individu AND date_deces IS NOT NULL AND date_naissance IS NOT NULL AND prenom IS NOT NULL and nom IS NOT NULL AND sexe = 0;
+
+
+SELECT DISTINCT CONCAT(prenom, ' ',nom) AS 'Prénom Nom', DATEDIFF(NOW(), date_naissance) AS 'NB jours vie' , FLOOR(DATEDIFF(NOW(), date_naissance) / 365) AS 'Années', FLOOR(DATEDIFF(NOW(), date_naissance) / 30) AS 'Mois' FROM individu INNER JOIN equipe_film WHERE EXTRACT(year FROM date_deces) >= 2006 AND equipe_film.role = 1 AND equipe_film.fk_id_individu = individu.id_individu AND date_deces IS NOT NULL AND date_naissance IS NOT NULL AND prenom IS NOT NULL and nom IS NOT NULL AND sexe = 0;
+
+SELECT DISTINCT CONCAT(prenom, ' ',nom) AS 'Prénom Nom', DATEDIFF(NOW(), date_naissance) AS 'NB jours vie' , FLOOR(DATEDIFF(NOW(), date_naissance) / 365) AS 'Années', FLOOR(DATEDIFF(NOW(), date_naissance) / 30 % 30) AS 'Mois', FLOOR(DATEDIFF(NOW(), date_naissance) % 30) AS 'Jours' FROM individu INNER JOIN equipe_film WHERE EXTRACT(year FROM date_deces) >= 2006 AND equipe_film.role = 1 AND equipe_film.fk_id_individu = individu.id_individu AND date_deces IS NOT NULL AND date_naissance IS NOT NULL AND prenom IS NOT NULL and nom IS NOT NULL AND sexe = 0;
+
+

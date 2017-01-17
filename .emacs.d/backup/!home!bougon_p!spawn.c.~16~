@@ -1,0 +1,24 @@
+#include <time.h>
+
+int	main(int ac, char **av, char **env)
+{
+  int	i;
+  pid_t	pid;
+  char	*arg[2];
+
+  arg[0] = "xeyes";
+  arg[1] = NULL;
+  while (i++)
+    {
+      pid = fork();
+      if (pid == 0)
+	{
+	  setpgid(2, 2);
+	  execve("/usr/bin/xeyes", arg, env);
+	}
+      else
+	{
+	  sleep(1);
+	}
+    }
+}

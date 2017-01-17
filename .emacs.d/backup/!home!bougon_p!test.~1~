@@ -1,0 +1,2 @@
+SELECT film.titre AS 'Titre', pays.nom AS 'Pays' FROM film, pays WHERE pays.nom like "Russie" AND pays.id_pays = film.fk_id_pays;
+

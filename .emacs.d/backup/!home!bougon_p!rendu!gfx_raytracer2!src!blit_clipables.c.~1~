@@ -1,0 +1,14 @@
+/*
+** blit_clipables.c for BLIT in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Apr 14 00:25:51 2016 bougon_p
+** Last update Thu Apr 14 00:26:17 2016 bougon_p
+*/
+
+void	blit_clipables(t_data *data)
+{
+
+}

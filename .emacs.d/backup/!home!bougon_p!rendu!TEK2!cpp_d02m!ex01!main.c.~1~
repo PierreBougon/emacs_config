@@ -1,0 +1,13 @@
+int  main (void)
+{
+char *str1="Hi,";
+char*str2="Itworks!";
+char*res;
+t_str_op str_op;
+add_str(str1,str2,&res);
+printf("%s\n",res);
+str_op.str1=str1;
+str_op.str2=str2;
+add_str_struct(&str_op);
+printf("%s\n",str_op.res);
+}

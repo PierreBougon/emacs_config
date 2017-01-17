@@ -1,0 +1,38 @@
+/*
+** castmania.c for cast in /home/bougon_p/rendu/TEK2/cpp_d02m/ex4
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 11:32:49 2017 bougon_p
+** Last update Thu Jan  5 12:09:22 2017 bougon_p
+*/
+
+void	exec_operation(t_instruction_type intstruction_type, void *data)
+{
+  if (instruction_type == ADD_OPERATION)
+    {
+      exec_add(data->operation);
+      if (data->output_type == VERBOSE)
+	{
+	  if (data->operation->div_type == INTEGER)
+	    printf("%d\n", data->operation->div_op->res);
+	  else
+	    printf("%f\n", data->operation->div_op->res);
+	}
+    }
+  else if (instruction_type == DIV_OPERATION)
+    {
+      exec_div(data->operation);
+      if (data->output_type == VERBOSE)
+	printf("%d\n", data->operation->add_op->res);
+    }
+}
+
+void	exec_instruction(t_instruction_type instruction_type, void *data)
+{
+  if (instruction_type == PRINT_INT)
+    printf("%d\n", *data);
+  if (instruction_type == PRINT_FLOAT)
+    printf("%f\n", *data);
+}

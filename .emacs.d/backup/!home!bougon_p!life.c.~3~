@@ -1,0 +1,50 @@
+/*
+** life.c for LIFE in /home/bougon_p
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon May 16 00:47:03 2016 bougon_p
+** Last update Mon May 16 00:52:05 2016 bougon_p
+*/
+
+#include <stdbool.h>
+#include <stdio.h>
+
+bool	birth()
+{
+  return (true);
+}
+
+double	breathe(double value)
+{
+  return (value + 0.40);
+}
+
+bool	death()
+{
+  if (rand() % 1000 == 0)
+    return (true);
+  else
+    return (false);
+}
+
+int		main()
+{
+  bool		living;
+  double	oxygen_value;
+
+  living = birth();
+  while (living)
+    {
+      printf("I'm free !\n");
+      if (oxygen_value <= 0.10)
+	oxygen_value = breathe(oxygen_value);
+      if (death)
+	{
+	  printf("I'm dead !\n");
+	  break ;
+	}
+    }
+  return (0);
+}

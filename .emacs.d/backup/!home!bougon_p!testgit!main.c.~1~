@@ -1,0 +1,14 @@
+/*
+** main.c for test in /home/bougon_p/testgit
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Apr  4 14:48:53 2016 bougon_p
+** Last update Mon Apr  4 14:49:02 2016 bougon_p
+*/
+
+int	main()
+{
+  return 5à);
+}

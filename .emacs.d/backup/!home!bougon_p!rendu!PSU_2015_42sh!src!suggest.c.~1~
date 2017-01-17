@@ -1,0 +1,11 @@
+/*
+** suggest.c for suggest in /home/bougon_p/rendu/PSU_2015_42sh
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 26 11:43:54 2016 bougon_p
+** Last update Thu May 26 11:44:02 2016 bougon_p
+*/
+
+#include "42s.h"

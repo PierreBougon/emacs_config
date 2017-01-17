@@ -1,0 +1,11 @@
+function pilule(a)
+{
+    a += 1;
+}
+
+var bite = 12
+
+alert("Coucou tu veux vois mon penis de type pénien ?\n")
+pilule(bite)
+console.log(bite)
+console.log("yolo")

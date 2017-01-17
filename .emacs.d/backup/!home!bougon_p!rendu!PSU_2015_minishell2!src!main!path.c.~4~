@@ -1,0 +1,58 @@
+/*
+** path.c for path in /home/bougon_p/rendu/PSU_2015_minishell2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Apr  4 17:58:03 2016 bougon_p
+** Last update Mon Apr  4 18:22:14 2016 bougon_p
+*/
+
+#include "shell.h"
+
+int	copy_next_path(char *cmd, char *path, int num_path)
+{
+  int	count_separ;
+  int	n;
+  int	i;
+
+  i = -1;
+  count_separ = 1;
+  while (path[++i] && count_separ < num_path)
+    {
+      if (path[i] == ':')
+	count_separ++;
+      if (count_separ >= num_path)
+	break ;
+    }
+  if (path[i] == 0)
+    return (1);
+  n = 0;
+  while (path[++i] && path[i] != ':')
+    cmd[n++] = path[i];
+  cmd[n] = 0;
+  return (0);
+}
+
+char		*get_next_path(char *cmd, t_data *data)
+{
+  static int	nb_path = 0;
+  char		*path;
+  char		*new;
+
+  path = get_var_from_env(data, "PATH");
+  if ((new = malloc(sizeof(char) *
+		    my_strlen(cmd) + my_strlen(path) + 1)) == NULL)
+    exit(1);
+  my_bzero(new, my_strlen(cmd) + my_strlen(path));
+  if (nb_path == 0)
+    {
+      nb_path++;
+      return (cmd);
+    }
+  if (copy_next_path(new, path, nb_path) == 1)
+    return (NULL);
+  my_strcat(new, cmd);
+  free(cmd);
+  return (new);
+}

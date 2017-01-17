@@ -1,0 +1,21 @@
+/*
+** delete.c for delete in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon May 16 20:18:36 2016 bougon_p
+** Last update Mon May 16 21:19:40 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+int	delete_form(t_data *data)
+{
+  if (data->click_action)
+    {
+      printf("Deleting form\n");
+      data->click_action = false;
+    }
+  return (0);
+}

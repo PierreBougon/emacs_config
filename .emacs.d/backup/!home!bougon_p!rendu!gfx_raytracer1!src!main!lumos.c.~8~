@@ -1,0 +1,70 @@
+/*
+** lumos.c for lumos in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar 13 08:27:32 2016 bougon_p
+** Last update Sun Mar 13 10:20:01 2016 bougon_p
+*/
+
+#include "ray.h"
+
+void	set_pos(t_3dpos *inter_pos, double k, t_vecpos *init_vec)
+{
+  inter_pos->x = init_vec->x * k;
+  inter_pos->y = init_vec->y * k;
+  inter_pos->z = init_vec->z * k;
+}
+
+void	tekraylumia(t_vecpos *v, t_3dpos *inter, t_3dpos *spot)
+{
+  v->x = spot->x - inter->x;
+  v->y = spot->y - inter->y;
+  v->z = spot->z - inter->z;
+}
+
+void	tekraynormal(t_3dpos *inter_pos)
+{
+  /* *norm = sqrt((pow(inter->x, 2.0f) + pow(inter->y, 2.0f) */
+  /* 	       + pow(inter->z, 2.0f))); */
+  inter_pos->x = 0 - inter_pos->x;
+  inter_pos->y = 0 - inter_pos->y;
+  inter_pos->z = 0 - inter_pos->z;
+}
+
+double calc_alpha(t_3dpos *inter_pos, t_vecpos *v)
+{
+  return (inter_pos->x * v->x + inter_pos->y * v->y + inter_pos->z * v->z);
+}
+
+void			lumos(t_data *data, t_vecpos *init_vec,
+			      double k, t_bunny_position *pixpos)
+{
+  t_eq                  eq;
+  t_3dpos		inter_pos;
+  t_vecpos              v;
+  double		norm;
+  double		alpha;
+
+  set_pos(&inter_pos, k, init_vec);
+  tekraylumia(&v, &inter_pos, &data->spot.pos);
+  tekraynormal(&inter_pos);
+  alpha = calc_alpha(&inter_pos, &v);
+  /* printf("alpha = %f && pos.x = %f && pos.y = %f && pos.z = %f\n" */
+  /* 	 , alpha, inter_pos.x, inter_pos.y, inter_pos.z); */
+  if (cos(alpha) > 0.0f)
+    {
+      data->sph.color.argb[0] *= cos(alpha);
+      data->sph.color.argb[1] *= cos(alpha);
+      data->sph.color.argb[2] *= cos(alpha);
+
+      /* data->sph.color.argb[0] = 255; */
+      /* data->sph.color.argb[1] = 255; */
+      /* data->sph.color.argb[2] = 255; */
+
+      data->sph.color.argb[3] = 0;
+      /* tekpixel(data->pixarray, *pixpos, &data->sph.color); */
+      /* data->sph.color.full = RED; */
+    }
+}

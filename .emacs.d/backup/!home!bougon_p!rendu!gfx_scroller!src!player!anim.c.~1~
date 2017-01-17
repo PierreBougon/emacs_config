@@ -1,0 +1,30 @@
+/*
+** anim.c for ANIMS in /home/bougon_p/rendu/gfx_scroller
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar 20 11:58:02 2016 bougon_p
+** Last update Sun Mar 20 11:59:26 2016 bougon_p
+*/
+
+void	move_player(t_data *data)
+{
+  refresh_player_pos(&data->player);
+  if (data->player.ismoving == true)
+    {
+      data->player.wait++;
+      if (data->player.wait % 5 == 0)
+        data->player.tim++;
+      data->player.sprite->clip_x_position = (data->player.tim % 10) * 70;
+      data->player.sprite->clip_width = 70;
+      bunny_blit(&data->window->buffer,
+                 data->player.sprite,
+                 &data->player.play_pos);
+    }
+  else if (!data->player.isattack
+           && !data->player.ismoving)
+    idle_anim(data);
+  else if (data->player.isattack == true)
+    anim_attck(data);
+}

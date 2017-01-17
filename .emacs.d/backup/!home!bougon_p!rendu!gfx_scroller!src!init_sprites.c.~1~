@@ -1,0 +1,13 @@
+/*
+** init_sprites.c for MEGAMAN in /home/bougon_p/rendu/gfx_scroller
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat Mar 19 00:06:52 2016 bougon_p
+** Last update Sat Mar 19 00:07:15 2016 bougon_p
+*/
+
+#include "mega.h"
+
+void	init_sprites(t_data *data)

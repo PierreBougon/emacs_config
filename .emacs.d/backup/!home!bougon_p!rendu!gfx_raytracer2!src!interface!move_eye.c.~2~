@@ -1,0 +1,21 @@
+/*
+** move_eye.c for move in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Apr 17 18:34:07 2016 bougon_p
+** Last update Sun Apr 17 18:39:38 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+void				move_eye(t_data *data)
+{
+  const t_bunny_position	*mpos;
+
+  mpos = bunny_get_mouse_position();
+  if (!data->itfc.move.needmoving)
+    data->itfc.move.first_pos = *mpos;
+
+}

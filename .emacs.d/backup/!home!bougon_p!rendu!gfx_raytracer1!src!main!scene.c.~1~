@@ -1,0 +1,14 @@
+/*
+** scene.c for scnene in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar 13 02:33:33 2016 bougon_p
+** Last update Sun Mar 13 02:33:56 2016 bougon_p
+*/
+
+#include "ray.h"
+
+void	draw_scene(t_data *data)
+{

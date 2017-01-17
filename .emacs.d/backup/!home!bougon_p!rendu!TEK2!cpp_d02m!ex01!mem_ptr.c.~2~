@@ -1,0 +1,26 @@
+/*
+** mem_ptr.c for mem in /home/bougon_p/rendu/TEK2/cpp_d02m/ex01
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 09:40:50 2017 bougon_p
+** Last update Thu Jan  5 09:59:05 2017 bougon_p
+*/
+
+#include <stdlib.h>
+
+void	add_str(char *str1, char *str2, char **res)
+{
+  int	len;
+
+  len = strlen(str1) + strlen(str2);
+  if (!(*res = calloc(len + 1, sizeof(char))))
+    return;
+  *res = strcat(str1, str2);
+}
+
+void	add_str_struct(t_str_op *str_op)
+{
+  add_str(str_op->str1, str_op->str2, &str_op->res);
+}

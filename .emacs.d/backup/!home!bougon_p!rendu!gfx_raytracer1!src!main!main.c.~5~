@@ -1,0 +1,86 @@
+/*
+** main.c for main in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Mar 11 18:21:33 2016 bougon_p
+** Last update Sat Mar 12 23:26:22 2016 bougon_p
+*/
+
+#include "ray.h"
+
+void			set_bg(t_bunny_pixelarray *pixarray)
+{
+  t_bunny_position	pos;
+  t_color		col;
+  int			i;
+  int			j;
+
+  i = 0;
+  j = 0;
+  col.full = BLACK;
+  while (j < WIN_HEIGHT)
+    {
+      while (i < WIN_WIDTH)
+        {
+          pos.x = i;
+          pos.y = j;
+          tekpixel(pixarray, pos, &col);
+          i++;
+        }
+      i = 0;
+      j++;
+    }
+}
+
+int	draw(t_data *data)
+{
+  return (0);
+}
+
+t_bunny_response	esc_key(t_bunny_event_state state,
+                                t_bunny_keysym keysym, void *_data)
+{
+  t_data		*data;
+
+  data = _data;
+  if (keysym == BKS_ESCAPE && state == GO_DOWN)
+    return (EXIT_ON_SUCCESS);
+  return (GO_ON);
+}
+
+t_bunny_response	mainloop(void *_data)
+{
+  t_data		*data;
+
+  data = _data;
+  draw(data);
+  bunny_blit(&data->window->buffer, &data->pixarray->clipable, 0);
+  bunny_display(data->window);
+  return (GO_ON);
+}
+
+int		main()
+{
+  t_data	data;
+
+  data.sph.x = 1000;
+  data.sph.y = 1000;
+  data.sph.z = 1000;
+  data.sph.color.full = RED;
+  data.sph.rayon = 1;
+  data.cam.x = 0;
+  data.cam.y = 0;
+  data.cam.z = 0;
+
+  data.window = bunny_start(WIN_WIDTH, WIN_HEIGHT, 0, "R");
+  data.pixarray = bunny_new_pixelarray(WIN_WIDTH, WIN_HEIGHT);
+  set_bg(data.pixarray);
+  bunny_set_loop_main_function(mainloop);
+  bunny_set_key_response(esc_key);
+  bunny_loop(data.window, 60, &data);
+  bunny_stop(data.window);
+  bunny_delete_clipable(&data.pixarray->clipable);
+  return (0);
+}

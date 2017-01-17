@@ -1,0 +1,6 @@
+int main()
+{
+  Toy t("bite");
+
+  t.getName;
+}

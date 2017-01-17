@@ -1,0 +1,35 @@
+/*
+** my_exec.c for exec in /home/bougon_p/rendu/BootStrap
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Mar 16 15:56:17 2016 bougon_p
+** Last update Wed Mar 16 16:32:26 2016 bougon_p
+*/
+
+#include <unistd.h>
+
+int	main(int ac, char **av, char **env)
+{
+  pid_t	cpid;
+  int	pipefd[2];
+  char  *lsargs[] = {"ls", NULL};
+  char  *wcargs[] = {"grep", "test", NULL};
+
+  pipe(pipefd);
+  cpid = fork();
+
+  if (cpid == 0)
+    {
+      dup2(pipefd[0], 0);
+      close(pipefd[1]);
+      execve("/bin/grep", wcargs, env);
+    }
+  else
+    {
+      dup2(pipefd[1], 1);
+      close(pipefd[0]);
+      execve("/bin/ls", lsargs, env);
+    }
+}

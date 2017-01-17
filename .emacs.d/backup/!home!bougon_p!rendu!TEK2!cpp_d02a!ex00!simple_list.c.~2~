@@ -1,0 +1,42 @@
+/*
+** simple_list.c for list in /home/bougon_p/rendu/TEK2/cpp_d02a/ex00
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 15:19:17 2017 bougon_p
+** Last update Thu Jan  5 15:32:44 2017 bougon_p
+*/
+
+#include "simple_list.h"
+
+unsigned int	list_get_size(t_list list)
+{
+
+}
+
+t_bool		list_is_empty(t_list list)
+{
+
+}
+
+void		list_dump(t_list list)
+{
+
+}
+
+t_bool		list_add_elem_at_front(t_list *front_ptr, double elem)
+{
+
+}
+
+t_bool		list_add_elem_at_back(t_list *front_ptr, double elem)
+{
+
+}
+
+t_bool		list_add_elem_at_position(t_list *front_ptr,
+					  double elem, unsigned int position)
+{
+
+}

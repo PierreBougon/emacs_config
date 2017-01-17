@@ -1,0 +1,25 @@
+int  main ( v o i d )
+{
+t_list list_head=NULL;
+unsigned int
+double
+double
+double
+
+size;
+i=5.2;
+j=42.5;
+k=3.3;
+list_add_elem_at_back(&list_head,i);
+list_add_elem_at_back(&list_head,j);
+list_add_elem_at_back(&list_head,k);
+size=list_get_size(list_head);
+printf("Thereare%uelementsonthelist\n",size);
+list_dump(list_head)
+list_del_elem_at_back(&list_head);
+size=list_get_size(list_head);
+printf("Thereare%uelementsonthelist\n",size);
+list_dump(list_head);
+
+return(0);
+}

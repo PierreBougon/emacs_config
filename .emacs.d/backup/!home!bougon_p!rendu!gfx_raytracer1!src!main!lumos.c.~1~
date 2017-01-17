@@ -1,0 +1,16 @@
+/*
+** lumos.c for lumos in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar 13 08:27:32 2016 bougon_p
+** Last update Sun Mar 13 08:27:57 2016 bougon_p
+*/
+
+#include "ray.h"
+
+void	lumos(t_data *data)
+{
+
+}

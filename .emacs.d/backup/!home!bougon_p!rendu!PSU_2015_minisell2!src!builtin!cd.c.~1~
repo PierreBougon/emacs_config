@@ -1,0 +1,14 @@
+/*
+** cd.c for cd in /home/bougon_p/rendu/PSU_2015_minisell2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Mar 30 22:48:45 2016 bougon_p
+** Last update Wed Mar 30 22:49:18 2016 bougon_p
+*/
+
+int	m_cd(t_data *data)
+{
+  return (0);
+}

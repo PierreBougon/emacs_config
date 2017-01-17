@@ -1,0 +1,16 @@
+/*
+** print_tetri.c for print in /home/bougon_p/rendu/PSU_2015_tetris
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Mar  3 10:30:28 2016 bougon_p
+** Last update Thu Mar  3 10:36:15 2016 bougon_p
+*/
+
+#include "tetris.h"
+
+int	aff_tetris()
+{
+
+}

@@ -1,0 +1,11 @@
+/*
+** castmania.c for cast in /home/bougon_p/rendu/TEK2/cpp_d02m/ex4
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Jan  5 11:32:49 2017 bougon_p
+** Last update Thu Jan  5 11:34:20 2017 bougon_p
+*/
+
+void exec_operation ( t _ i n s t r u c t i o n _ t y p e i n t s t r u c t i o n _ t y p e , void * data )

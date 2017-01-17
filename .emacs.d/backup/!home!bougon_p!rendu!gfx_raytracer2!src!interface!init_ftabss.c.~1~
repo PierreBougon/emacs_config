@@ -1,0 +1,11 @@
+/*
+** init_ftabss.c for init in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat May 21 14:03:47 2016 bougon_p
+** Last update Sat May 21 14:03:55 2016 bougon_p
+*/
+
+#include "raytarcer.h"

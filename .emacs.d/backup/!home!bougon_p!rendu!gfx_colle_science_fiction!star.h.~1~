@@ -1,0 +1,30 @@
+/*
+** my.h for star in /home/bougon_p/rendu/gfx_colle_science_fiction/colle4
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 18:11:12 2016 bougon_p
+** Last update Thu May 19 18:11:50 2016 bougon_p
+*/
+
+#ifndef MY_H_
+# define MY_H_
+
+
+typedef struct	s_star
+{
+  int		y;
+  float		x;
+  float		x_speed;
+}		t_star;
+
+typedef struct		s_starfield
+{
+  t_bunny_position	pos;
+  t_bunny_pixelarray	*pic;
+  t_star		*star;
+  int			nb;
+}			t_starfield;
+
+#endif /* !MY_H */

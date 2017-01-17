@@ -1,0 +1,113 @@
+/*
+** init_tetri.c for TETRIMINOS in /home/bougon_p/rendu/PSU_2015_tetris
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Feb 25 16:38:30 2016 bougon_p
+** Last update Thu Feb 25 16:42:52 2016 bougon_p
+*/
+
+#include "tetris.h"
+
+void		take_nbr(t_tetri *tetri, char *buf, char *save)
+{
+  int           i;
+  int           p;
+
+  i = -1;
+  p = 0;
+  while (buf[++i] != 0 && buf[i] != ' ')
+    save[p] = buf[i];
+  tetri->width = my_getnbr(save);
+  save = set_line_null(save, 4096);
+  p = 0;
+  while (buf[++i] != 0 && buf[i != ' '])
+    save[p] = buf[i];
+  tetri->height = my_getnbr(save);
+  save = set_line_null(save, 4096);
+  p = 0;
+  while (buf[++i] != 0)
+    save[p] = buf[i];
+  tetri->color = my_getnbr(save);
+}
+
+void		*fill_tetri_carac(t_tetri *tetri, int fd)
+{
+  char          *buf;
+  char          *save;
+
+  if ((buf = malloc(sizeof(char) * 4096)) == NULL)
+    return (NULL);
+  if ((save = malloc(sizeof(char) * 4096)) == NULL)
+    return (NULL);
+  if ((buf = get_next_line(fd)) == NULL)
+    return (NULL);
+  buf = set_line_null(buf, 4096);
+  save = set_line_null(save, 4096);
+  take_nbr(tetri, buf, save);
+  return (tetri);
+}
+
+t_tetri		*fill_tetri(char *path)
+{
+  t_tetri       *tetri;
+  int           fd;
+  int           i;
+
+  if ((tetri = malloc(sizeof(t_tetri) * 1)) == NULL)
+    return (NULL);
+  if ((fd = open(path, O_RDONLY)) == -1)
+    return (NULL);
+  fill_tetri_carac(tetri, fd);
+  i = -1;
+  if ((tetri->item = init_tab(tetri->height, tetri->width)) == NULL)
+    return (NULL);
+  while (++i < tetri->height)
+    {
+      if ((tetri->item[i] = get_next_line(fd)) == NULL)
+        return (NULL);
+    }
+  close(fd);
+  return (tetri);
+}
+
+void	*create_elem(int i, t_arglist *arg, t_tetri *tetri)
+{
+  if (i == 0)
+    {
+      if ((create_cdlist(arg, tetri)) == 1)
+        return (NULL);
+    }
+  else
+    {
+      if ((add_last_cdl(arg, tetri)) == 1)
+        return (NULL);
+    }
+  return (tetri);
+}
+
+void		*init_tetriminos(t_arglist *arg)
+{
+  DIR           *dirp;
+  struct dirent *dir;
+  t_tetri       *tetri;
+  int           i;
+
+  i = 0;
+  if ((dirp = opendir("./tetriminos")) == NULL)
+    return (NULL);
+  while ((dir = readdir(dirp)) != NULL)
+    {
+      if (dir->d_name[0] != '.' && my_strcmp(dir->d_name, "..") != 0)
+	{
+          if ((tetri = fill_tetri(dir->d_name)) == NULL)
+            return (NULL);
+          if ((create_elem(i, arg, tetri)) == NULL)
+            return (NULL);
+          i = 1;
+        }
+    }
+  closedir(dirp);
+  return (tetri);
+}

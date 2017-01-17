@@ -1,0 +1,16 @@
+/*
+** builtins.c for builtins in /home/bougon_p/rendu/PSU_2015_minisell2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Mar 30 23:00:39 2016 bougon_p
+** Last update Wed Mar 30 23:01:08 2016 bougon_p
+*/
+
+#include "shell.h"
+
+int	check_builtins(t_data *data)
+{
+
+}

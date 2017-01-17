@@ -1,0 +1,11 @@
+/*
+** check_sons.c for sons in /home/bougon_p/rendu/dante/astar
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun May 15 02:51:25 2016 bougon_p
+** Last update Sun May 15 02:51:33 2016 bougon_p
+*/
+
+#include "dante.h"

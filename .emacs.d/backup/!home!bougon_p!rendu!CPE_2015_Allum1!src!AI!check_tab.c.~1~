@@ -1,0 +1,41 @@
+/*
+** check_tab.c for CHECK in /home/bougon_p/rendu/CPE_2015_Allum1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Feb 10 18:59:30 2016 bougon_p
+** Last update Wed Feb 10 18:59:51 2016 bougon_p
+*/
+
+int		refresh_tab_var(int **tab, int size, t_aidata *aidata)
+{
+  int           i;
+  int           j;
+  unsigned int  nb_alu;
+  int           cond;
+
+  j = -1;
+  aidata->max_line_alu = 0;
+  aidata->act_line = 0;
+  while (++j < HEIGHT(size))
+    {
+      i = -1;
+      nb_alu = 0;
+      cond = 0;
+      while (++i < WIDTH(size))
+        {
+          if (tab[j][i] == 2 && cond == 0)
+            {
+              aidata->act_line++;
+              cond = 1;
+              nb_alu++;
+            }
+          else if (tab[j][i] == 2)
+            nb_alu++;
+          if (nb_alu > aidata->max_line_alu)
+            aidata->max_line_alu = nb_alu;
+        }
+    }
+  return (0);
+}

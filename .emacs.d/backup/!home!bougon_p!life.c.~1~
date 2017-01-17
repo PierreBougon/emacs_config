@@ -1,0 +1,16 @@
+/*
+** life.c for LIFE in /home/bougon_p
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon May 16 00:47:03 2016 bougon_p
+** Last update Mon May 16 00:47:46 2016 bougon_p
+*/
+
+int	main()
+{
+  bool	living;
+
+  living = birth();
+}

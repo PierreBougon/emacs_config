@@ -1,0 +1,29 @@
+/*
+** main.c for SHELL in /home/bougon_p/rendu/PSU_2015_minisell2/src/main
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Mar 28 12:12:24 2016 bougon_p
+** Last update Mon Mar 28 12:48:30 2016 bougon_p
+*/
+
+#include "shell.h"
+
+int	start_shell()
+{
+  char	*buf;
+
+  while (1)
+    {
+      buf = get_next_line(0);
+      printf("%s\n", buf);
+    }
+  return (0);
+}
+
+int	main(int ac, char **av, char **env)
+{
+  start_shell();
+  return (0);
+}

@@ -1,0 +1,16 @@
+/*
+** save_ini.c for ini in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Apr 28 17:07:33 2016 bougon_p
+** Last update Thu Apr 28 17:09:07 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+void	save_new_ini(t_data *data)
+{
+  printf("Bonjour !\n");
+}

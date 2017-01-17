@@ -1,0 +1,87 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "stack.h"
+#include "queue.h"
+#include "generic_list.h"
+#include "tree_traversal.h"
+
+void dump_int(void *data)
+{
+  printf("%d\n", *(int *) data);
+}
+
+t_bool generic_push_stack(void *container, void *data)
+{
+  return (stack_push((t_stack *) container, data));
+}
+
+t_bool generic_push_queue(void *container, void *data)
+{
+  return (queue_push((t_stack *) container, data));
+}
+
+void *generic_pop_stack(void *container)
+{
+  void *data;
+
+  data = stack_top(*(t_stack *) container);
+  stack_pop((t_stack *)container);
+  return (data);
+}
+
+void *generic_pop_queue(void *container)
+{
+  void *data;
+
+  data = queue_front(*(t_queue *) container);
+  queue_pop((t_queue *)container);
+  return (data);
+}
+
+int main(void)
+{
+
+  t_tree   tree = NULL;
+  t_tree_node    *node;
+
+  int val_0 = 0;
+  int val_a = 1;
+  int val_b = 2;
+  int val_c = 3;
+  int val_aa = 11;
+  int val_ab = 12;
+  int val_ca = 31;
+  int val_cb = 32;
+  int val_cc = 33;
+
+
+  t_container container;
+  t_stack stack = NULL;
+  t_queue queue = NULL;
+
+
+  init_tree(&tree, &val_0);
+  node = tree_add_child(tree, &val_a);
+  tree_add_child(node, &val_aa);
+  tree_add_child(node, &val_ab);
+  tree_add_child(tree, &val_b);
+
+  node = tree_add_child(tree, &val_c);
+  tree_add_child(node, &val_ca);
+  tree_add_child(node, &val_cb);
+  tree_add_child(node, &val_cc);
+
+  printf("Depth Scan :\n");
+  container.container = &stack;
+  container.push_func = &generic_push_stack;
+  container.pop_func = &generic_pop_stack;
+  tree_traversal(tree, &container, &dump_int);
+
+  printf("Width Scan :\n");
+  container.container = &queue;
+  container.push_func = &generic_push_queue;
+  container.pop_func = &generic_pop_queue;
+  tree_traversal(tree, &container, &dump_int);
+
+  return 0;
+}

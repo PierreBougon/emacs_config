@@ -1,0 +1,11 @@
+/*
+** tab.c for tab in /home/bougon_p/rendu/gfx_colle_science_fiction/colle1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 14:49:16 2016 bougon_p
+** Last update Thu May 19 14:49:26 2016 bougon_p
+*/
+
+#include <stdlib.h>

@@ -1,0 +1,14 @@
+/*
+** String.c for string in /home/bougon_p/rendu/TEK2/cpp_d03/ex00
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Jan  6 09:29:54 2017 bougon_p
+** Last update Fri Jan  6 09:34:49 2017 bougon_p
+*/
+
+void	StringInit(String *this, const char *s)
+{
+  this->str = strdup(s);
+}

@@ -1,0 +1,35 @@
+/*
+** print.c for PRINT in /home/bougon_p/rendu/CPE_2015_Allum1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Feb  8 21:43:24 2016 bougon_p
+** Last update Mon Feb  8 21:49:57 2016 bougon_p
+*/
+
+#include "alum1.h"
+
+void    print_gamestruct(int size, int **tab)
+{
+  int   i;
+  int   j;
+
+  i = 0;
+  while (j < size + 2)
+    {
+      i = 0;
+      while (i < size * 2 + 1)
+        {
+          if (tab[j][i] == 0)
+            printf(" ");
+          else if (tab[j][i] == 1)
+            printf("*");
+          else if (tab[j][i] == 2)
+            printf("|");
+          i++;
+        }
+      printf("\n");
+      j++;
+    }
+}

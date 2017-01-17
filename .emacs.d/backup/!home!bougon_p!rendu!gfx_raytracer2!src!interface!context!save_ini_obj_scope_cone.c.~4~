@@ -1,0 +1,33 @@
+/*
+** save_ini_obj_scope_cone.c for ini in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Apr 29 18:17:52 2016 bougon_p
+** Last update Fri Apr 29 18:55:20 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+void		cone_obj(t_data *data, t_object *obj,
+			 t_bunny_ini *ini, int i)
+{
+  char		*value;
+  char		*scope;
+  t_cone	*con;
+
+  con = obj->datas;
+  scope = data->itfc.save.obj_names[i];
+  bunny_ini_set_field(ini, scope, "type", 0, "cone");
+  /* sphere_pos(obj, ini, scope); */
+  /* sphere_rot(obj, ini, scope); */
+  bunny_ini_set_field(ini, scope, "real", 0, "1");
+  value = setnbr(con->tex_type);
+  bunny_ini_set_field(ini, scope, "tex_type", 0, value);
+  bunny_free(value);
+  /* sphere_coef(obj, ini, scope); */
+  value = setnbr(con->color.full);
+  bunny_ini_set_field(ini, scope, "color", 0, value);
+  bunny_free(value);
+}

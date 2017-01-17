@@ -1,0 +1,55 @@
+/*
+** interface.c for interface in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Apr 15 15:51:45 2016 bougon_p
+** Last update Fri Apr 15 16:43:07 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+int	check_context_activated(t_itfc *itfc, t_data *data)
+{
+  int	i;
+
+  while (i < NB_CONTEXT)
+    {
+      if (itfc->button[i])
+	{
+	  printf("\n==Button : %d IS Activated==\n", i);
+	  //itfc->fct_context[i](data);
+	  return (1);
+	}
+      i++;
+    }
+  return (i);
+}
+
+void	check_button_activated(t_itfc *itfc, t_data *data)
+{
+  int	i;
+
+  if (itfc->button[0])
+    {
+      printf("No Buttons are activated\n");
+      return ;
+    }
+  i = check_context_activated(itfc, data);
+  while (i < NB_BUTTON)
+    {
+      if (itfc->button[i])
+	{
+	  printf("\n==Button : %d IS Activated==\n", i);
+	  //itfc->
+	}
+      i++;
+    }
+}
+
+int	interface(t_data *data)
+{
+  check_button_activated(&data->itfc, data);
+  return (0);
+}

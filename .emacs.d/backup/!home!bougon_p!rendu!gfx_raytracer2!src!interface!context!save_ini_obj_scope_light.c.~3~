@@ -1,0 +1,23 @@
+/*
+** save_ini_obj_scope_light.c for ini in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Apr 29 18:35:33 2016 bougon_p
+** Last update Fri Apr 29 18:54:00 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+void		light_obj(t_data *data, t_object *obj,
+			  t_bunny_ini *ini, int i)
+{
+  char		*value;
+  char		*scope;
+  t_light	*light;
+
+  light = obj->datas;
+  scope = data->itfc.save.obj_names[i];
+  bunny_ini_set_field(ini, scope, "type", 0, "light");
+}

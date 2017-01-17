@@ -1,0 +1,17 @@
+/*
+** cmd.c for CMD in /home/bougon_p/rendu/PSU_2015_minisell2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Mar 28 13:59:56 2016 bougon_p
+** Last update Mon Mar 28 14:00:48 2016 bougon_p
+*/
+
+#include "shell.h"
+
+int	exec_cmd(char *buf)
+{
+  if (check_exit(buf) == 1)
+    return (1;
+}

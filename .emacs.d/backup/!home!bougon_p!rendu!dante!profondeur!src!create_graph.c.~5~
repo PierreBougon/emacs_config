@@ -1,0 +1,86 @@
+/*
+** create_graph.c for graph in /home/bougon_p/rendu/dante/profondeur
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed May 11 22:02:55 2016 bougon_p
+** Last update Thu May 12 00:03:11 2016 bougon_p
+*/
+
+#include "dante.h"
+
+int	nb_inter(char **map, t_pos *pos, int size)
+{
+  int	inters;
+
+  inters = 0;
+  if (pos->y != 0 && map[pos->y - 1][pos->x] != WALL)
+    inters++;
+  if (pos->x != 0 && map[pos->y][pos->x - 1] != WALL)
+    inters++;
+  if (pos->y != size && map[pos->y + 1][pos->x] != WALL)
+    inters++;
+  if (pos->x != size && map[pos->y][pos->x + 1] != WALL)
+    inters++;
+  return (inters);
+}
+
+
+int	init_graph(t_graph *graph, char **map)
+{
+  if (!(graph->root = malloc(sizeof(t_node))))
+    return (1);
+  graph->length = 1;
+  graph->root->status = START;
+  graph->root->pos.x = 0;
+  graph->root->pos.y = 0;
+  graph->root->north = NULL;
+  graph->root->west = NULL;
+  graph->root->east = create_east_node(graph->root);
+  graph->root->south = create_south_node(graph->root);
+  return (0);
+}
+
+void	fill_node(t_graph *graph, t_node *node, t_pos *pos)
+{
+  if (pos->x == 0 && pos->y == 0)
+    return ;
+  node->pos.x = pos->x;
+  node->pos.y = pos->x;
+  node->east = create_east_node(graph->root);
+  node->root->south = create_south_node(graph->root);
+}
+
+t_graph	create_graph(char **map)
+{
+  t_pos		pos;
+  t_node	*curr;
+  t_node	*save;
+  t_graph	graph;
+  int		size;
+
+  pos.y = -1;
+  size = my_strlen(map[0]);
+  init_graph(&graph, map);
+  curr = graph.root;
+  save = graph.root;
+  while (map[++pos.y])
+    {
+      pos.x = -1;
+      while (map[pos.y][++pos.x])
+	{
+	  if (nb_inter(map, &pos, size) > 1)
+	    {
+	      fill_node(graph, curr, &pos);
+	      curr = curr->east;
+	    }
+	}
+      /* clean_curr(); */
+      curr = save->south;
+      save = curr;
+    }
+  //curr->north->status = END;
+  //set_end();
+  return (graph);
+}

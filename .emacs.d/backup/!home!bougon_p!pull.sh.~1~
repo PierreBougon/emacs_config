@@ -1,0 +1,5 @@
+mr_clean
+make fclean
+git add --all
+git commit -am "pull request"
+git pull

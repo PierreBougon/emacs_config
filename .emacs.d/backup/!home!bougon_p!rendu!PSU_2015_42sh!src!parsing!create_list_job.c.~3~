@@ -1,0 +1,63 @@
+/*
+** create_list_job.c for list in /home/bougon_p/rendu/PSU_2015_42sh
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Jun  3 16:38:09 2016 bougon_p
+** Last update Fri Jun  3 17:36:58 2016 bougon_p
+*/
+
+#include <stdlib.h>
+#include <sys/types.h>
+#include "42s.h"
+
+t_job_list		*erase_job(t_job_list *to_erase)
+{
+  if (to_erase->next == to_erase)
+    {
+      clean_elem(to_erase);
+          }
+}
+
+static t_job_list	*create_list_job(char *cmd,
+					 pid_t pid)
+{
+  t_job_list		*new;
+
+  if (!(new = malloc(sizeof(new))))
+    exit(1);
+  new->next = new;
+  new->prev = new;
+  new->num = 1;
+  new->cmd = cmd;
+  new->pid = pid;
+  return (new);
+}
+
+static t_job_list	*push_back_job(t_job_list *root,
+				       char *cmd, pid_t pid)
+{
+  t_job_list		*new;
+
+  if (!(new = malloc(sizeof(new))))
+    exit(1);
+  new->next = root;
+  new->prev = root->prev;
+  root->prev->next = new;
+  root->prev = new;
+  new->num = new->prev->num + 1;
+  new->cmd = cmd;
+  new->pid = pid;
+  return (new);
+}
+
+t_job_list	*update_job_list(t_job_list *root,
+				 char *cmd, pid_t pid)
+{
+  if (!root)
+    root = create_list_job(cmd, pid);
+  else
+    push_back_job(root, cmd, pid);
+  return (root);
+}

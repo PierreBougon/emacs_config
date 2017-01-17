@@ -1,0 +1,152 @@
+/*
+** cmd.c for CMD in /home/bougon_p/rendu/PSU_2015_minisell2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Mar 28 13:59:56 2016 bougon_p
+** Last update Mon Mar 28 17:20:04 2016 bougon_p
+*/
+
+#include "shell.h"
+
+char	*my_epur_str(char *str)
+{
+  char	*new;
+  int	i;
+  int	n;
+
+  if ((new = malloc(sizeof(char) * my_strlen(str) + 1)) == NULL)
+    return (NULL);
+  new = my_bzero(new, my_strlen(str) + 1);
+  n = 0;
+  i = 0;
+  while (str[i])
+    {
+      while ((str[i] == ' ' || str[i] == '\t') && str[i])
+	i++;
+      if (i > 0 && (str[i - 1] == ' ' || str[i - 1] == '\t'))
+	new[n++] = ' ';
+      while ((str[i] != ' ' && str[i] != '\t') && str[i])
+	new[n++] = str[i++];
+    }
+  free(str);
+  str = new;
+  return (new);
+}
+
+int	count_spaces(char *str)
+{
+  int	i;
+  int	n;
+
+  i = -1;
+  n = 0;
+  while (str[++i])
+    {
+      if (str[i] == ' ')
+	n++;
+    }
+  return (n);
+}
+
+char	**init_tab(int line, int col)
+{
+  char  **tab_to_malloc;
+  int   i;
+
+  i = 0;
+  if ((tab_to_malloc = malloc(sizeof(char *) * (line + 1))) == NULL)
+    return (NULL);
+  tab_to_malloc[line] = NULL;
+  while (i < line)
+    {
+      if ((tab_to_malloc[i] = malloc(sizeof(char) * (col + 1))) == NULL)
+        return (NULL);
+      tab_to_malloc[i] = my_bzero(tab_to_malloc[i], col + 1);
+      i++;
+    }
+  return (tab_to_malloc);
+}
+
+void	free_tab(char **tab)
+{
+  int	i;
+
+  i = 0;
+  while (tab[i] != NULL)
+    free(tab[i++]);
+  free(tab);
+}
+
+char	**parse_args(char *buf)
+{
+  int	i;
+  int	n;
+  int	n_max;
+  int	k;
+  char	**tab;
+
+  buf = my_epur_str(buf);
+  n_max = count_spaces(buf) + 1;
+  i = -1;
+  n = 0;
+  k = 0;
+  tab = init_tab(n_max, my_strlen(buf));
+  while (buf[++i])
+    {
+      if (buf[i] == ' ')
+	{
+	  n++;
+	  k = 0;
+	}
+      else
+	tab[n][k++] = buf[i];
+    }
+  while (n++ < n_max)
+    tab[n] = NULL;
+  free(buf);
+  return (tab);
+}
+
+void	putstr_err(char *str)
+{
+  write(2, str, my_strlen(str));
+}
+
+char	*rewrite_cmd(char *cmd)
+{
+  int	i;
+  char	*new;
+
+  if (new = malloc(sizeof(char) * my_strlen(cmd) + 5))
+    return (NULL);
+  if (my_strncmp(cmd, "/bin/", 5) == 0)
+    return (0);
+
+}
+
+int	launch_cmd(char *buf, char **env)
+{
+  pid_t	cpid;
+  char	**tab;
+
+  tab = parse_args(buf);
+  tab[0] = rewrite_cmd(tab[0]);
+  cpid = fork();
+  if (cpid == 0)
+    {
+      if (execve(tab[0], tab, env) == -1)
+	return (putstr_err("cannot exec the following comand :\n"), 1);
+    }
+  free_tab(tab);
+}
+
+int	exec_cmd(char *buf, char **env)
+{
+  if (check_exit(buf) == 1)
+    return (1);
+  else
+    launch_cmd(buf, env);
+  return (0);
+}

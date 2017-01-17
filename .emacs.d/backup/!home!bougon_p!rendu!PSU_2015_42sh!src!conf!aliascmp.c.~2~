@@ -1,0 +1,11 @@
+/*
+** aliascmp.c for cmp in /home/bougon_p/rendu/PSU_2015_42sh
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Jun  5 15:05:52 2016 bougon_p
+** Last update Sun Jun  5 15:06:03 2016 bougon_p
+*/
+
+#include "42s.h"

@@ -1,0 +1,38 @@
+/*
+** sphere.c for sphere in /home/bougon_p/rendu/gfx_raytracer1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar 13 12:54:16 2016 bougon_p
+** Last update Sun Mar 13 12:54:52 2016 bougon_p
+*/
+
+double		disc_calc(double a, double b, double c, double *k)
+{
+  double	delta;
+  double	k1;
+  double	k2;
+
+  delta = pow(b, 2.0) - (4.0 * a * c);
+  if (delta < 0.0f)
+    return (0);
+  else if (delta == 0.0f)
+    {
+      k1 = -b / (2.0 * a);
+      if (k1 < 0.0f)
+        return (0.0f);
+      else if (k1 > 0.0f)
+	return (1.0f);
+    }
+  else
+    {
+      k1 = (-b + sqrt(delta)) / (2.0f * a);
+      k2 = (-b - sqrt(delta)) / (2.0f * a);
+      if (k1 < 0.0f && k2 < 0.0f)
+        return (0.0f);
+      else if (k1 > 0.0f || k2 > 0.0f)
+	return (set_max_k(k, k1, k2), 1.0f);
+    }
+  return (0.0);
+}

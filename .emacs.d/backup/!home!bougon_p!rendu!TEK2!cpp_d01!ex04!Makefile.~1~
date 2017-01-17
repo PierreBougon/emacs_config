@@ -1,0 +1,64 @@
+##
+## Makefile for MAKEFILE in /home/bougon_p
+## 
+## Made by bougon_p
+## Login   <bougon_p@epitech.net>
+## 
+## Started on  Wed Jan  4 12:28:45 2017 bougon_p
+## Last update Wed Jan  4 12:39:04 2017 bougon_p
+##
+
+# USEFUL VARIABLES
+
+RM      =	rm -rf
+
+GREEN	=	\033[1;32m
+
+WHITE	=	\033[0m
+
+ECHO	=	echo -e
+
+# SOURCES VARIABLES
+
+MAIN		=	src/
+
+SRC		=	main.c \
+			menger.c
+
+OBJS    	=	$(SRC:.c=.o)
+
+
+# PROJECT VARIABLES
+
+NAME	=	menger
+
+IFLAG	=	-Iinclude/
+
+CFLAGS  =	-Wall -Wextra -Werror -std=gnu99
+
+CC      =	gcc $(CFLAGS) $(IFLAG)
+
+
+# LIBRARY VARIABLES
+
+LDFLAGS =       -lm
+
+# PROJECT RULES
+
+$(NAME)		: 	$(OBJS)
+			@$(CC) -o $(NAME) $(OBJS) $(LDFLAGS) $(LIB)
+
+all		:	$(NAME)
+
+clean		:
+			@$(RM) $(OBJS)
+
+fclean		: 	clean
+			@$(RM) $(NAME)
+
+re		:	fclean all
+
+.c.o		:
+			@$(CC) -c $< -o $@
+
+.PHONY		:	all clean fclean re

@@ -1,0 +1,15 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "ex_6.h"
+int main(void)
+{
+  t_foo foo;
+  foo.bar = 0;
+  foo.foo.foo = 0xCAFE;
+  printf("%d_n", sizeof(foo) == sizeof(foo.foo));
+  printf("%d_n", sizeof(foo.foo.bar.foo) == sizeof(foo.foo.foo));
+  printf("%d_n", sizeof(foo.bar) == 2 * sizeof(foo.foo.bar));
+  printf("%d_n", sizeof(foo.foo.foo) == sizeof(foo.foo.bar.bar));
+  printf("%08X_n", foo.bar);
+  return (EXIT_SUCCESS);
+}

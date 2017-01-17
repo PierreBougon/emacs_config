@@ -1,0 +1,24 @@
+/*
+** alum1.h for HEADER in /home/bougon_p/rendu/CPE_2015_Allum1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Feb  8 17:01:30 2016 bougon_p
+** Last update Tue Feb  9 01:23:54 2016 bougon_p
+*/
+
+#ifndef	ALUM1_H_
+# define ALUM1_H_
+
+# include "my.h"
+# include "get_next_line.h"
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+
+
+void	print_gamestruct(int, int **);
+
+#endif /* !ALUM1_H_ */

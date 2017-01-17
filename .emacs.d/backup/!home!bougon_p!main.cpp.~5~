@@ -1,0 +1,7 @@
+#include <iostream>
+
+int main()
+{
+  std::string str = "abcdefghijklmnopqrstuvwxyz";
+  std::string sub = str.substr(2, 4);
+}

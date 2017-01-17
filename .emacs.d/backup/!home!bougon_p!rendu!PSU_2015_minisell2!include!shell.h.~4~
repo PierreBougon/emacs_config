@@ -1,0 +1,42 @@
+/*
+** shell.h for shell in /home/bougon_p/rendu/PSU_2015_minisell2/include
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Mar 28 12:09:58 2016 bougon_p
+** Last update Mon Mar 28 12:17:03 2016 bougon_p
+*/
+
+#ifndef	SHELL_H_
+# define SHELL_H_
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdbool.h>
+
+# include "my.h"
+# include "struct.h"
+# include "get_next_line.h"
+
+/*
+** DEFINES
+*/
+
+
+
+/*
+**     _____________________
+**    / ____________________\
+** ## |PROTOTYPING FUNCTIONS| ##
+**    +---------------------+
+**
+*/
+
+
+/*
+** MAIN
+*/
+
+#endif /* !SHELL_H_ */

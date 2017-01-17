@@ -1,0 +1,11 @@
+#include "func_ptr_enum.h"
+
+int main(void)
+{
+  char*str="I ’m using function pointers!";
+  do_action(PRINT_NORMAL,str);
+  do_action(PRINT_REVERSE, str);
+  do_action(PRINT_UPPER,str);
+  do_action(PRINT_42,str);
+  return(0)
+}

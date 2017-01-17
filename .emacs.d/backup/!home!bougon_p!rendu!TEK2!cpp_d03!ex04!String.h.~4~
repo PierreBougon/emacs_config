@@ -1,0 +1,57 @@
+/*
+** String.h for string in /home/bougon_p/rendu/TEK2/cpp_d03/ex00
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Jan  6 09:30:03 2017 bougon_p
+** Last update Fri Jan  6 16:01:43 2017 bougon_p
+*/
+
+#ifndef STRING_H_
+# define STRING_H_
+
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
+
+typedef struct	s_string	String;
+
+struct			s_string
+{
+  char			*str;
+
+  // Class Methods
+  void			(*assign_s)(struct s_string *, const struct s_string *);
+  void			(*assign_c)(struct s_string *, const char *);
+  void			(*append_s)(struct s_string *, const struct s_string *);
+  void			(*append_c)(struct s_string *, const char *);
+  void			(*at)(struct s_string *, size_t);
+  char			(*clear)(struct s_string *);
+  int			(*size)(struct s_string *);
+  int			(*compare_s)(String *, const String *);
+  int			(*compare_c)(String *, char const *);
+  size_t		(*copy)(String *, char *, size_t, size_t);
+  char const		*(*c_str)(String *);
+  int			(*empty)(String *);
+  int			(*find_s)(String *, const Sring *, size_t);
+  int			(*find_c)(String *, char const *, size_t);
+  int			(*insert_s)(String *, size_t, char const *);
+  int			(*insert_c)(String *, size_t, String const *);
+  int			(*to_int)(String *);
+  String		*(*split_s)(String *, char);
+  char			**(*split_c)(String *, char);
+  void			(*dump)(String *);
+  void			(*join_c)(String *, char, char const **);
+  void			(*join_s)(String *, char, String *);
+  String		*(*join_s)(String *, int, int);
+};
+
+
+/*
+** String Class
+*/
+void	StringInit(String *this, const char *s);
+void	StringDestroy(String *this);
+
+#endif /* !STRING_H_ */

@@ -1,0 +1,29 @@
+/*
+** mega.h for MEGA in /home/bougon_p/rendu/gfx_scroller
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Mar 18 20:39:34 2016 bougon_p
+** Last update Fri Mar 18 20:46:56 2016 bougon_p
+*/
+
+#ifndef mega_h_
+# define mega_h_
+
+# include <stdlib.h>
+# include <time.h>
+# include "lapin.h"
+
+# define WIN_WIDTH 640
+# define WIN_HEIGHT 480
+
+typedef	struct		s_data
+{
+  t_bunny_window	*window;
+  t_bunny_pixelarray	*pixarray;
+}			t_data;
+
+void	set_bg(t_bunny_pixelarray *);
+
+#endif /* !mega_h_  */

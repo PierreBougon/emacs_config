@@ -1,0 +1,61 @@
+/*
+** check_tab.c for CHECK in /home/bougon_p/rendu/CPE_2015_Allum1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Feb 10 18:59:30 2016 bougon_p
+** Last update Sat Feb 13 20:50:38 2016 bougon_p
+*/
+
+#include "alum1.h"
+
+void	reset_var(t_aidata *aidata)
+{
+  aidata->min_line_alu = 0;
+  aidata->max_line_alu = 0;
+  aidata->act_line = 0;
+}
+
+void	set_var(t_aidata *aidata, int j)
+{
+  if (aidata->tmp_nb_alu > aidata->max_line_alu)
+    {
+      aidata->max_line_alu = aidata->tmp_nb_alu;
+      aidata->longest_line = j;
+    }
+  if (aidata->tmp_nb_alu < aidata->min_line_alu)
+    {
+      aidata->max_line_alu = aidata->tmp_nb_alu;
+      aidata->shortest_line = j;
+    }
+}
+
+void	core_check(t_aidata *aidata)
+{
+  if (tab[j][i] == 2)
+    {
+      aidata->tmp_nb_alu++;
+      aidata->tmp_add_line = 1;
+    }
+  set_var(aidata, j);
+}
+
+int		refresh_tab_var(int **tab, int size, t_aidata *aidata)
+{
+  int           i;
+  int           j;
+
+  j = -1;
+  reset_var(aidata);
+  while (++j < HEIGHT(size))
+    {
+      i = -1;
+      aidata->tmp_nb_alu = 0;
+      aidata->tmp_add_line = 0;
+      while (++i < WIDTH(size))
+	core_check(aidata, i, j, );
+      aidata->act_line += aidata->tmp_add_line;
+    }
+  return (0);
+}

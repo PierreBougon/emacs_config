@@ -1,0 +1,42 @@
+/*
+** echo.c for echo in /home/bougon_p/rendu/PSU_2015_42sh
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun May 29 16:23:51 2016 bougon_p
+** Last update Sun May 29 17:02:27 2016 bougon_p
+*/
+
+#include <stdbool.h>
+#include "42s.h"
+
+void	init_opt(t_echo *opt)
+{
+  opt->opt_e = false;
+  opt->opt_n = false;
+  opt->opt_E = false;
+  opt->opt_help = false;
+  opt->opt_vers = false;
+}
+
+void	parse_pot(t_echo *opt, t_sh *sh)
+{
+  char	**args;
+  int	i;
+
+  args = sh->exec->args;
+  i = -1;
+  while (args[++i])
+    {
+      printf("%s\n", args[i]);
+    }
+}
+
+int		my_echo(t_sh *sh)
+{
+  t_echo	opt;
+
+  init_opt(&opt);
+  parse_opt(&opt);
+}

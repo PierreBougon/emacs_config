@@ -1,0 +1,96 @@
+/*
+** main.c for main in /home/bougon_p/rendu/gfx_colle_science_fiction/colle1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 13:03:30 2016 bougon_p
+** Last update Thu May 19 16:12:24 2016 bougon_p
+*/
+
+#include <stdbool.h>
+#include "quant.h"
+
+void			my_fill(t_bunny_pixelarray *pix, int color)
+{
+  int			i;
+  t_color		*col;
+
+  i = -1;
+  col = (t_color *)pix->pixels;
+  while (++i < pix->clipable.clip_width * pix->clipable.clip_height)
+    col[i].full = color;
+}
+
+t_bunny_position	pos_(int x, int y)
+{
+  t_bunny_position	pos;
+
+  pos.x = x;
+  pos.y = y;
+  return (pos);
+}
+
+t_bunny_response	esc(UNUSED t_bunny_event_state state,
+			    t_bunny_keysym sym,
+			    UNUSED t_data *data)
+{
+  if (sym == BKS_ESCAPE)
+    return (EXIT_ON_SUCCESS);
+  return (GO_ON);
+}
+
+t_bunny_response	mainloop(t_data *data)
+{
+  t_bunny_position	pos;
+
+  pos = pos_(WIDTH - data->scott->clipable.clip_width,
+	     HEIGHT - data->scott->clipable.clip_height);
+  if (data->state == CONTOUR)
+    {
+      fill_first_line(data->scott, data->white_scott, data->tab);
+      data->state = FIRST;
+    }
+  else if (data->state == FIRST)
+    {
+      if (fill_next_line(data->scott, data->white_scott, data->tab) == 1)
+	data->state = SECOND;
+    }
+  else if (data->state == SECOND)
+    {
+      unfill_next_line(data->scott, data->white_scott, data->tab);
+      my_blit(data->bg, data->scott, pos);
+    }
+  my_blit(data->bg, data->white_scott, pos);
+  bunny_blit(&data->win->buffer, &data->bg->clipable, NULL);
+  bunny_display(data->win);
+  return (GO_ON);
+}
+
+int                     main(UNUSED int ac, UNUSED char **av)
+{
+  t_data		data;
+
+  if ((data.win = bunny_start(WIDTH, HEIGHT, false, "quant")) == NULL ||
+      (data.bg = bunny_load_pixelarray("assets/img/decor.png")) == NULL ||
+      (data.scott = bunny_load_pixelarray("assets/img/scott.png")) == NULL ||
+      (data.white_scott =
+       bunny_new_pixelarray(data.scott->clipable.clip_width,
+			    data.scott->clipable.clip_height)) == NULL ||
+      (data.pix = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL ||
+      (data.music = bunny_load_music("assets/img/quantumleap.ogg")) == NULL)
+    return (1);
+  my_fill(data.white_scott, 0x00000000);
+  data.tab = init_tab(data.scott);
+  data.state = CONTOUR;
+  bunny_sound_play((t_bunny_sound *)data.music);
+  bunny_set_loop_main_function((t_bunny_loop)mainloop);
+  bunny_set_key_response((t_bunny_key)esc);
+  bunny_loop(data.win, 50, &data);
+  delete_all_clipables(&data);
+  bunny_sound_stop((t_bunny_sound *)data.music);
+  bunny_delete_sound((t_bunny_sound *)data.music);
+  bunny_stop(data.win);
+  free_tab(data.tab);
+  return (0);
+}

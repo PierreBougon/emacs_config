@@ -1,0 +1,16 @@
+/*
+** init_main.c for init in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Apr 13 23:20:17 2016 bougon_p
+** Last update Wed Apr 13 23:20:59 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+int	init_main_data(t_data *data)
+{
+
+}

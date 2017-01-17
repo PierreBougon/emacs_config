@@ -1,0 +1,29 @@
+/*
+** tools.c for TOOLS in /home/bougon_p/rendu/sudoki-bi
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat Feb 27 00:37:59 2016 bougon_p
+** Last update Sat Feb 27 00:38:21 2016 bougon_p
+*/
+
+char	*clean_str(char *str)
+{
+  char  *new;
+  int   i;
+  int   p;
+
+  if ((new = malloc(sizeof(char) * strlen(str))) == NULL)
+    return (NULL);
+  new = set_line_null(new, strlen(str));
+  i = -1;
+  p = 0;
+  while (str[++i] != 0)
+    {
+      if (i % 2 == 0 || i == 19)
+        new[p++] = str[i];
+    }
+  free (str);
+  return (new);
+}

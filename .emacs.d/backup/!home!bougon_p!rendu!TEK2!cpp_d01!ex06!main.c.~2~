@@ -1,0 +1,32 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "ex_6.h"
+int main(void)
+{
+  t_foo foo;
+  foo.bar = 0;
+  foo.foo.foo = 0xCAFE;
+
+
+  printf("foo => %d\n", sizeof(foo));
+  printf("foo.foo => %d\n", sizeof(foo.foo));
+
+  printf("foo.foo.bar.foo => %d\n", sizeof(foo.foo.bar.foo));
+  printf("foo.foo.foo => %d\n", sizeof(foo.foo.foo));
+
+  printf("foo.bar => %d\n", sizeof(foo.bar));
+  printf("foo.foo.bar => %d\n", 2 * sizeof(foo.foo.bar));
+
+  printf("foo.foo.foo => %d\n", sizeof(foo.foo.foo));
+  printf("foo.foo.bar.bar => %d\n", sizeof(foo.foo.bar.bar));
+
+
+
+
+  printf("%d\n", sizeof(foo) == sizeof(foo.foo));
+  printf("%d\n", sizeof(foo.foo.bar.foo) == sizeof(foo.foo.foo));
+  printf("%d\n", sizeof(foo.bar) == 2 * sizeof(foo.foo.bar));
+  printf("%d\n", sizeof(foo.foo.foo) == sizeof(foo.foo.bar.bar));
+  printf("%08X_n", foo.bar);
+  return (EXIT_SUCCESS);
+}

@@ -1,0 +1,11 @@
+/*
+** drawing.c for draw in /home/bougon_p/rendu/TEK2/cpp_d01/ex03
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Jan  4 17:41:43 2017 bougon_p
+** Last update Wed Jan  4 17:42:10 2017 bougon_p
+*/
+
+v o i d draw_square ( u i n t 3 2 _ t * * img , t _ p o i n t * o r i g , s i z e _ t s i z e , u i n t 3 2 _ t c o l o r )

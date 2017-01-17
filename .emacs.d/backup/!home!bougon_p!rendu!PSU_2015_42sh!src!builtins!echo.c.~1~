@@ -1,0 +1,16 @@
+/*
+** echo.c for echo in /home/bougon_p/rendu/PSU_2015_42sh
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun May 29 16:23:51 2016 bougon_p
+** Last update Sun May 29 16:49:34 2016 bougon_p
+*/
+
+int		echo(char *str)
+{
+  t_echo	opt;
+
+  init_opt(&opt);
+}

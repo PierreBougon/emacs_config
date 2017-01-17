@@ -1,0 +1,49 @@
+/*
+** String.c for string in /home/bougon_p/rendu/TEK2/cpp_d03/ex00
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Jan  6 09:29:54 2017 bougon_p
+** Last update Fri Jan  6 10:16:31 2017 bougon_p
+*/
+
+#include <stdlib.h>
+#include <string.h>
+#include "String.h"
+
+void	StringInit(String *this, const char *s)
+{
+  if (this && s)
+    this->str = strdup(s);
+  else if (this && !s)
+    this->str = NULL;
+
+  if (this)
+    {
+      this->assign_s = assign_s;
+      this->assign_c = assign_c;
+    }
+}
+
+void	StringDestroy(String *this)
+{
+  if (this)
+    free(this->str);
+}
+
+static void	assign_s(String *this, String const *str)
+{
+  if (this && str && str->str)
+    this->str = strdup(str->str);
+  else if (this)
+    this->str = NULL;
+}
+
+static void	assign_c(String *this, char const *s)
+{
+  if (this && s)
+    this->str = strdup(s);
+  else if (this && !s)
+    this->str = NULL;
+}

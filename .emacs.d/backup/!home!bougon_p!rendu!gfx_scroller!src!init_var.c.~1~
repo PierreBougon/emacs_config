@@ -1,0 +1,14 @@
+/*
+** init_var.c for init in /home/bougon_p/rendu/gfx_scroller
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat Mar 19 22:47:45 2016 bougon_p
+** Last update Sat Mar 19 22:49:33 2016 bougon_p
+*/
+
+void	init_var()
+{
+
+}

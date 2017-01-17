@@ -1,0 +1,63 @@
+/*
+** tab.c for tab in /home/bougon_p/rendu/gfx_colle_science_fiction/colle1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu May 19 14:49:16 2016 bougon_p
+** Last update Thu May 19 15:18:18 2016 bougon_p
+*/
+
+#include <stdlib.h>
+#include <strings.h>
+#include "quant.h"
+
+bool	check_finished(int **tab, int width)
+{
+  int	i;
+  int	j;
+
+  j = -1;
+  while (tab[++j])
+    {
+      i = -1;
+      while (++i < width)
+	{
+	  if (tab[j][i] != 2)
+	    return (false);
+	}
+    }
+  return (true);
+}
+
+int	**init_tab(t_bunny_pixelarray *scott)
+{
+  int	**tab;
+  int	i;
+
+  if (!(tab =
+	bunny_malloc(sizeof(int *)
+		     * (scott->clipable.clip_height + 1))))
+    return (NULL);
+  tab[scott->clipable.clip_height] = NULL;
+  i = -1;
+  while (++i < scott->clipable.clip_height)
+    {
+      if (!(tab[i] = bunny_malloc(sizeof(int) * scott->clipable.clip_width)))
+	return (NULL);
+      bzero(tab[i], scott->clipable.clip_width);
+    }
+  return (tab);
+}
+
+void	free_tab(int **tab)
+{
+  int	i;
+
+  i = -1;
+  while (tab[++i])
+    {
+      bunny_free(tab[i]);
+    }
+  bunny_free(tab);
+}

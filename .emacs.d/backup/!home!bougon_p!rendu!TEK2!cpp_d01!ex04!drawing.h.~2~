@@ -1,0 +1,31 @@
+/*
+** drawing.h for draw in /home/bougon_p/rendu/TEK2/cpp_d01/ex03
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Jan  4 17:32:45 2017 bougon_p
+** Last update Wed Jan  4 20:04:40 2017 bougon_p
+*/
+
+#ifndef DRAWING_H_
+# define DRAWING_H_
+
+#include <unistd.h>
+#include <stdint.h>
+
+typedef struct	s_color
+{
+  char		argb[4];
+  unsigned int	col;
+}		t_color;
+
+typedef	struct	s_point
+{
+  unsigned int	x;
+  unsigned int	y;
+}		t_point;
+
+void	draw_square(uint32_t **img, t_point *orig, size_t size, uint32_t color);
+
+#endif /* DRAWING_H_  */

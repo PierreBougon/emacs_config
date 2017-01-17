@@ -1,0 +1,35 @@
+/*
+** menger.c for menger in /home/bougon_p/rendu/TEK2/cpp_d01/ex01
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Jan  4 12:34:15 2017 bougon_p
+** Last update Wed Jan  4 15:23:27 2017 bougon_p
+*/
+
+#include <stdio.h>
+
+int	menger(int size, int depth, int x, int y)
+{
+  int n_size;
+  int basex;
+  int basey;
+
+  n_size = size / 3;
+  basex = x - size + n_size;
+  basey = y - size + n_size;
+  printf("%03d %03d %03d\n", size, x, y);
+  if (depth > 1)
+    {
+      menger(size / 3, depth - 1, basex, basey);
+      menger(size / 3, depth - 1, basex, basey + size);
+      menger(size / 3, depth - 1, basex, basey + (2 * size));
+      menger(size / 3, depth - 1, basex + size, basey);
+      menger(size / 3, depth - 1, basex + size, basey + (2 * size));
+      menger(size / 3, depth - 1, basex + (2 * size), basey);
+      menger(size / 3, depth - 1, basex + (2 * size), basey + size);
+      menger(size / 3, depth - 1, basex + (2 * size), basey + (2 * size));
+    }
+  return (0);
+}

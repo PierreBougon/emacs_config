@@ -1,0 +1,20 @@
+/*
+** save_ini.c for ini in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Apr 28 17:07:33 2016 bougon_p
+** Last update Thu Apr 28 17:21:58 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+void		save_new_ini(t_data *data)
+{
+  t_bunny_ini	*ini;
+
+  ini = bunny_new_ini();
+  bunny_ini_set_field(ini, "SCOPE", "field", 0 , "value");
+  bunny_save_ini(ini, "test.ini");
+}

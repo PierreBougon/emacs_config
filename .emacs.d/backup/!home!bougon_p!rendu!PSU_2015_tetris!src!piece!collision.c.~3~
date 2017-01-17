@@ -1,0 +1,43 @@
+/*
+** collision.c for collisions in /home/bougon_p/rendu/PSU_2015_tetris
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Mar  3 13:53:44 2016 bougon_p
+** Last update Thu Mar  3 14:01:38 2016 bougon_p
+*/
+
+#include "tetris.h"
+
+int		collision_left(t_tetri *itemdata, int **tab)
+{
+  int           j;
+
+  j = -1;
+  while (++j < itemdata->width)
+    {
+      if (itemdata->item[j][pos_x] == '*'
+          && tab[j][pos_x - 1] >= 1
+          && tab[j][pos_x - 1] <= 7)
+        return (1);
+    }
+  return (0);
+}
+
+int		collision(t_tetri *itemdata, int **tab)
+{
+  int           i;
+
+  i = -1;
+  while (++i < itemdata->width)
+    {
+      if (itemdata->item[itemdata->height - 1][i] == '*'
+          && tab[itemdata->pos_y + itemdata->height][i + itemdata->p	\
+						     os_x] >= 1
+          && tab[itemdata->pos_y + itemdata->height][i + itemdata->p	\
+						     os_x] <= 7)
+        return (1);
+    }
+  return (0);
+}

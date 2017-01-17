@@ -1,0 +1,15 @@
+/*
+** menger.c for menger in /home/bougon_p/rendu/TEK2/cpp_d01/ex01
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Jan  4 12:34:15 2017 bougon_p
+** Last update Wed Jan  4 12:38:06 2017 bougon_p
+*/
+
+int	menger(int size, int depth)
+{
+  size = depth;
+  return (0);
+}

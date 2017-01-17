@@ -1,0 +1,16 @@
+/*
+** error.c for ERROR in /home/bougon_p/rendu/CPE_2015_corewar/asm
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Mar 25 16:55:31 2016 bougon_p
+** Last update Fri Mar 25 16:59:22 2016 bougon_p
+*/
+
+#include "asm.h"
+
+void	my_putstr_err(char *str)
+{
+  write(2, str, my_strlen(str));
+}

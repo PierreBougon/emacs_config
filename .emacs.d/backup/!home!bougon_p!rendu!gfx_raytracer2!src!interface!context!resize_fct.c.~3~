@@ -1,0 +1,31 @@
+/*
+** resize_fct.c for resize in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri May 20 22:27:41 2016 bougon_p
+** Last update Fri May 20 22:37:15 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+int	resize_sphere(t_data *data, t_acc *coef)
+{
+  return (0);
+}
+
+int	resize_cylinder(t_data *data, t_acc *coef)
+{
+  return (0);
+}
+
+int	resize_cone(t_data *data, t_acc *coef)
+{
+  return (0);
+}
+
+int	resize_plan(t_data *data, t_acc *coef)
+{
+  return (0);
+}

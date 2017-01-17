@@ -1,0 +1,10 @@
+#include "String.h"
+
+int main()
+{
+  String string;
+  char *str;
+  str = malloc(100);
+  bzero(str, 100);
+  StringInit(&string, "comment");
+}

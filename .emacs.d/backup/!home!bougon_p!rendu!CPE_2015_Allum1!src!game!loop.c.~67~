@@ -1,0 +1,68 @@
+/*
+** loop.c for loop in /home/bougon_p/rendu/CPE_2015_Allum1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Feb  8 22:42:25 2016 bougon_p
+** Last update Tue Feb  9 04:17:28 2016 bougon_p
+*/
+
+#include "alum1.h"
+
+int	**pick_up(int line, int alum, int **tab, int size)
+{
+  int	i;
+  int	alum_del;
+
+  i = 0;
+  alum_del = -1;
+  while (alum_del < alum)
+    {
+      if (tab[line][size - line + i + 1] != 0)
+	{
+	  alum_del++;
+	  tab[line][size - line + i + 1] = 0;
+	}
+      i++;
+    }
+  return (tab);
+}
+
+int	check_end(int **tab, int size)
+{
+  int	i;
+  int	j;
+
+  j = -1;
+  while (++j < HEIGHT(size))
+    {
+      i = -1;
+      while (++i < WIDTH(size))
+	{
+	  if (tab[j][i] == 2)
+	    return (0);
+	}
+    }
+  return (1);
+}
+
+int	game_loop(int size, int **tab)
+{
+  int	line;
+  int	alum;
+
+  while (1)
+    {
+      my_putstr("Your turn: \n");
+      while (get_info(&line, &alum, size, tab) == -1);
+      tab = pick_up(line, alum, tab, size);
+      print_gamestruct(size, tab);
+      if (check_end(tab, size) == 1)
+	{
+	  my_putstr("You lost, too bad..\n");
+	  break;
+	}
+    }
+  return (0);
+}

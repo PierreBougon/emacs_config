@@ -1,0 +1,14 @@
+/*
+** main.c for main in /home/bougon_p/rendu/dante/profondeur
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat Apr 30 17:25:34 2016 bougon_p
+** Last update Sat Apr 30 17:34:31 2016 bougon_p
+*/
+
+int	main(int ac, char **av)
+{
+
+}

@@ -1,0 +1,22 @@
+/*
+** print_debug.c for DEBUG in /home/bougon_p/rendu/PSU_2015_tetris
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Feb 25 21:16:32 2016 bougon_p
+** Last update Thu Feb 25 21:18:49 2016 bougon_p
+*/
+
+void		print_tetri(t_arglist *tetriminos)
+{
+  int		i;
+  t_cdlist	*tmp;
+
+  i = 0;
+  tmp = tetriminos->root;
+  while (i++ < tetriminos->length)
+    {
+      print(t);
+    }
+}

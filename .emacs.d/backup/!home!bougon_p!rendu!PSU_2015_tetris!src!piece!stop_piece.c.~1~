@@ -1,0 +1,16 @@
+/*
+** stop_piece.c for stop in /home/bougon_p/rendu/PSU_2015_tetris
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Feb 28 00:52:14 2016 bougon_p
+** Last update Sun Feb 28 00:53:45 2016 bougon_p
+*/
+
+#include "tetris.h"
+
+int	need_to_stop(t_data *data)
+{
+
+}

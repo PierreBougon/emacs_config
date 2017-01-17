@@ -1,0 +1,14 @@
+/*
+** sudo.h for SUDOKU in /home/bougon_p/rendu/sudoki-bi
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Feb 26 21:45:59 2016 bougon_p
+** Last update Fri Feb 26 21:48:35 2016 bougon_p
+*/
+
+#ifndef SUDO_H_
+# define SUDO_H_
+
+#ifndef /* SUDO_H_ */

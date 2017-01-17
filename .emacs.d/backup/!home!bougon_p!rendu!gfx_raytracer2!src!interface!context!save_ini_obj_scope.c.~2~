@@ -1,0 +1,11 @@
+/*
+** save_ini_obj_scope.c for ini in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Apr 29 17:08:46 2016 bougon_p
+** Last update Fri Apr 29 17:27:45 2016 bougon_p
+*/
+
+#include "raytracer.h"

@@ -1,0 +1,11 @@
+/*
+** add_plan.c for plan in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Apr 24 18:02:53 2016 bougon_p
+** Last update Sun Apr 24 18:03:08 2016 bougon_p
+*/
+
+#include "raytracer.h"

@@ -1,0 +1,35 @@
+/*
+** check_menu.c for MENU in /home/bougon_p/rendu/gfx_scroller
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sun Mar 20 22:00:03 2016 bougon_p
+** Last update Sun Mar 20 22:02:11 2016 bougon_p
+*/
+
+#include "mega.h"
+
+void	check_menu(t_data *data, t_bunny_keysym keysym)
+{
+  if (keysym == BKS_ESCAPE)
+    {
+      data->state.menu = true;
+      data->state.game = false;
+      data->state.fondu = false;
+    }
+  if (keysym == BKS_DOWN)
+    {
+      if (data->menu.start)
+	data->menu.start = false;
+      else
+	data->menu.start = true;
+    }
+  else if (keysym == BKS_UP)
+    {
+      if (data->menu.start)
+	data->menu.start = false;
+      else
+	data->menu.start = true;
+    }
+}

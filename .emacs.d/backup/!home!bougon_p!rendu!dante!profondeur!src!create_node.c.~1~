@@ -1,0 +1,11 @@
+/*
+** create_node.c for node in /home/bougon_p/rendu/dante/profondeur
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed May 11 22:02:04 2016 bougon_p
+** Last update Wed May 11 22:02:13 2016 bougon_p
+*/
+
+#include "dante.h"

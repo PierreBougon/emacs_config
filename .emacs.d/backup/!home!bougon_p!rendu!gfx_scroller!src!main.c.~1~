@@ -1,0 +1,28 @@
+/*
+** main.c for MAIN in /home/bougon_p/rendu/gfx_scroller
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Mar 18 20:25:37 2016 bougon_p
+** Last update Fri Mar 18 20:35:47 2016 bougon_p
+*/
+
+int		main()
+{
+  t_data        data;
+
+  srand(time(0));
+  data.window = bunny_start(WIN_WIDTH, WIN_HEIGHT, 0, "Potter");
+  data.pixarray = bunny_new_pixelarray(WIN_WIDTH, WIN_HEIGHT);
+  set_bg(data.pixarray);
+  set_first_pix(&data);
+  data.left_click = 0;
+  bunny_set_loop_main_function(mainloop);
+  bunny_set_key_response(esc_key);
+  bunny_set_click_response(click_actions);
+  bunny_loop(data.window, 60, &data);
+  bunny_stop(data.window);
+  bunny_delete_clipable(&data.pixarray->clipable);
+  return (0);
+}

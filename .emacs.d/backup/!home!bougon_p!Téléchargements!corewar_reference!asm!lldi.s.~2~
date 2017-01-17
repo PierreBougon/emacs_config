@@ -1,0 +1,6 @@
+	.name "lldi"
+	.comment "lldi"
+
+	and	%:hi, %:hi, r3
+
+hi:	live %42

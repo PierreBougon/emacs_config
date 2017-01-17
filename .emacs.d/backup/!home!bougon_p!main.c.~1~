@@ -1,0 +1,15 @@
+void func(int *ptr)
+{
+  ptr = NULL;
+}
+
+int main()
+{
+  int *toto;
+  int tata = 12;
+
+  toto = malloc(1);
+  toto = 1;
+  func(toto);
+  printf("%d\n", toto[0]);
+}

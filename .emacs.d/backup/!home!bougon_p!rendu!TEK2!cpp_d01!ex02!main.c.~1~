@@ -1,0 +1,26 @@
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include "bitmap.h"
+int
+{
+}
+main(void)
+t_bmp_header
+t_bmp_info_header
+int
+uint32_t
+header;
+info;
+d;
+pixel = 0x00FFFFFF;
+make_bmp_header(&header,32);
+make_bmp_info_header(&info,32);
+/*Notcheckingyourreturnvaluesisbadbadbad*/
+d=open("32px.bmp",0_CREAT|0_TRUNC|0\WRONLY,0644);
+write(d,&header,sizeof(header));
+write(d,&info,sizeof(info));
+for(size_ti=0;i<32*32;++i)
+write(d,&pixel,sizeof(pixel));
+close(d);
+returnEXIT_SUCCESS;

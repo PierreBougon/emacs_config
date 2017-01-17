@@ -1,0 +1,25 @@
+/*
+** alumun.c for ALUM in /home/bougon_p/rendu/CPE_2015_Allum1
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Mon Feb  8 16:45:08 2016 bougon_p
+** Last update Mon Feb  8 17:03:18 2016 bougon_p
+*/
+
+#include "alum1.h"
+
+int	main(int ac, char **av, char **env)
+{
+  int	size;
+
+  if (*env == NULL)
+    {
+      write(2, "alum1: No environment detected\n", 31);
+      exit(1);
+    }
+  if (ac == 1)
+    size = 4;
+  return (0);
+}

@@ -1,0 +1,34 @@
+/*
+** err.c for ERROR in /home/bougon_p/rendu/sudoki-bi
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Sat Feb 27 00:36:47 2016 bougon_p
+** Last update Sat Feb 27 00:37:24 2016 bougon_p
+*/
+
+void	my_putstr_err(char *str)
+{
+  dprintf(2, "%s", str);
+}
+
+int	check_line(char *str, int j)
+{
+  int   i;
+
+  i = -1;
+  if (str[0] != '|' || str[19] != '|')
+    return (1);
+  while (str[++i] != 0)
+    {
+      if ((i > 0 && i < 19) && (j == 0 || j == 10) && str[i] != '-')
+        return (1);
+      if ((i > 0 && i < 19) && (j > 0 && j < 10) && (i % 2 == 0)
+          && ((str[i] < '0' || str[i] > '9') && str[i] != ' '))
+        return (1);
+      if (i % 2 == 1 && str[i] != ' ' && (j > 0 && j < 10) && i < 19)
+        return (1);
+    }
+  return (0);
+}

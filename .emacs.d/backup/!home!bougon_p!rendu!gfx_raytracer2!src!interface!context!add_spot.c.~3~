@@ -1,0 +1,47 @@
+/*
+** add_spot.c for add in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Tue May 17 14:53:45 2016 bougon_p
+** Last update Tue May 17 17:14:24 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+static t_light	*fill_light(t_data *data)
+{
+  t_light	*light;
+  t_acc		vec;
+
+  if (!(light = malloc(sizeof(t_light))))
+    return (NULL);
+  light->color.full = WHITE;
+  light->intensity = 0.50;
+  vec.x = 0;
+  vec.y = 0;
+  vec.z = 1000;
+  light->pos.x = data->rt.eye.pos.x;
+  light->pos.y = data->rt.eye.pos.y;
+  light->pos.z = data->rt.eye.pos.z;
+  translation_obj(&data->rt.rotation, &vec, &data->rt.eye.rot,
+		  &light->pos);
+}
+
+int	add_spot(t_data *data)
+{
+  t_object	*obj;
+  t_object	*new;
+
+  obj = data->rt.object;
+  if (!(new = malloc(sizeof(t_object))))
+    return (1);
+  new->prev = NULL;
+  new->next = obj;
+  new->type = LIGHT;
+  new->real = 1;
+  obj->prev = new;
+  new->datas = fill_light(data);
+  return (0);
+}

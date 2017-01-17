@@ -1,0 +1,34 @@
+/*
+** save_ini_obj_scope_plane.c for ini in /home/bougon_p/rendu/gfx_raytracer2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Fri Apr 29 18:18:29 2016 bougon_p
+** Last update Fri Apr 29 18:26:07 2016 bougon_p
+*/
+
+#include "raytracer.h"
+
+void	plane_obj(t_data *data, t_object *obj,
+		   t_buny_ini *ini, int i)
+{
+  char	*value;
+  char	*scope;
+
+  scope = data->itfc.save.obj_names[i];
+  bunny_ini_set_field(ini, scope, "type", 0, "plane");
+  /* sphere_pos(obj, ini, scope); */
+  /* sphere_rot(obj, ini, scope); */
+  bunny_ini_set_field(ini, scope, "real", 0, "1");
+  value = setnbr(obj->datas.tex_type);
+  bunny_ini_set_field(ini, scope, "tex_type", 0, value);
+  bunny_free(value);
+  value = setnbr(obj->datas.size);
+  bunny_ini_set_field(ini, scope, "size", 0, value);
+  bunny_free(value);
+  /* sphere_coef(obj, ini, scope); */
+  value = setnbr(obj->datas.color.full);
+  bunny_ini_set_field(ini, scope, "color", 0, value);
+  bunny_free(value);
+}

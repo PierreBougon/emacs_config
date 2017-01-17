@@ -1,0 +1,16 @@
+/*
+** add.c for add in /home/bougon_p/rendu/CPE_2015_corewar/asm
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Tue Mar 15 20:27:31 2016 bougon_p
+** Last update Tue Mar 15 20:27:36 2016 bougon_p
+*/
+
+#include "asm.h"
+
+int	w_add(t_info *info, int fd)
+{
+  return (0);
+}

@@ -1,0 +1,24 @@
+/*
+** init_tabgame.c for TABGAME in /home/bougon_p/rendu/PSU_2015_tetris
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Thu Mar  3 08:42:06 2016 bougon_p
+** Last update Thu Mar  3 09:15:21 2016 bougon_p
+*/
+
+int	**init_tab_game(int lines, int cols)
+{
+  int	j;
+  int	**tab;
+
+  j = -1;
+  if ((tab = malloc(sizeof(int *) * lines + 1)) == NUL)
+    return (NULL);
+  tab[lines] = NULL;
+  while (++j < lines)
+    if ((tab[j] = malloc(sizeof(int) * cols)) == NULL)
+      return (NULL);
+  return (tab);
+}

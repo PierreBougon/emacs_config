@@ -1,0 +1,22 @@
+/*
+** cd.c for cd in /home/bougon_p/rendu/PSU_2015_minisell2
+**
+** Made by bougon_p
+** Login   <bougon_p@epitech.net>
+**
+** Started on  Wed Mar 30 22:48:45 2016 bougon_p
+** Last update Fri Apr  1 14:45:52 2016 bougon_p
+*/
+
+#include "shell.h"
+
+int	m_cd(t_data *data)
+{
+  char	*path_asked;
+  int	ret;
+
+  path_asked = data->cmd[1];
+  ret = chdir(path_asked);
+  printf("%d\n", ret);
+  return (0);
+}
